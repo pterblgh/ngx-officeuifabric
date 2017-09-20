@@ -1,0 +1,48 @@
+{
+  "name": "ngx-officeuifabric",
+  "version": "0.1.0",
+  "description": "Unofficial Angular implementation of Office UI Fabric (https://dev.office.com/fabric#/fabric-js) from Microsoft.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pterblgh/ngx-officeuifabric.git"
+  },
+  "author": "Peter Balogh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pterblgh/ngx-officeuifabric/issues"
+  },
+  "homepage": "https://github.com/pterblgh/ngx-officeuifabric#readme",
+  "dependencies": {
+    "@angular/animations": "^4.3.6",
+    "@angular/common": "^4.3.6",
+    "@angular/compiler": "^4.3.6",
+    "@angular/core": "^4.3.6",
+    "@angular/forms": "^4.3.6",
+    "@angular/http": "^4.3.6",
+    "@angular/platform-browser": "^4.3.6",
+    "@angular/platform-browser-dynamic": "^4.3.6",
+    "core-js": "^2.5.1",
+    "rxjs": "^5.4.3",
+    "systemjs": "^0.20.18",
+    "zone.js": "^0.8.17"
+  },
+  "devDependencies": {
+    "@types/del": "^3.0.0",
+    "@types/gulp": "4.0.3",
+    "@types/gulp-connect": "^5.0.0",
+    "@types/gulp-sass": "0.0.30",
+    "@types/node": "^8.0.28",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-typescript": "^3.2.2",
+    "ts-node": "^3.3.0",
+    "tsconfig-paths": "^2.3.0",
+    "typescript": "^2.5.2"
+  }
+}

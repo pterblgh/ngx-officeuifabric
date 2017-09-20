@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "target": "es2015",
+    "lib": ["es5", "es2015", "dom"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "tools/**/*.ts"
+  ]
+}

@@ -54,7 +54,6 @@ task('build', runSequence(
     createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, 'dist/demo-app/node_modules'),    
     compileTask,
     'sass',
-    ...watchTask
 ));
 
 task('development', runSequence(

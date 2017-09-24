@@ -6,16 +6,16 @@ import * as typescript from 'gulp-typescript';
  * Compile all declared TypeScript sources to JavaScript with a
  * given tsConfig styled compilerOptions.
  * @param taskName 
- * @param rootPath 
- * @param destPath 
+ * @param path 
+ * @param outPath 
  * @param compilerOptions 
  */
-export function createCompileTask(taskName: string, rootPath: string, destPath: string, compilerOptions: CompilerOptions): string {
+export function createCompileTask(taskName: string, path: string, outPath: string, compilerOptions: CompilerOptions): string {
     taskName = `compile:${taskName}`;
     task(taskName, () => {
-        return src(`${rootPath}/**/*.ts`)
+        return src(`${path}/**/*.ts`)
             .pipe(typescript(compilerOptions))
-            .pipe(dest(destPath));
+            .pipe(dest(outPath));
     });
     return taskName;
 }

@@ -2,10 +2,12 @@ import { resolve } from 'path';
 import { task, watch, src, dest } from 'gulp';
 import * as gulpSass from 'gulp-sass';
 import { server, reload } from 'gulp-connect';
-import { runSequence, createCopyTask, createWatchTask, createCleanTask, createCompileTask } from 'gulp-helpers';
+import { runSequence, createCopyTask, createWatchTask, createCleanTask, createCompileTask, createSassTask } from 'gulp-helpers';
 import { buildConfig } from 'build';
 
 const demoApp = resolve(buildConfig.srcDir, 'demo-app');
+
+const DEMO_APP_OUT_PATH = 'dist/demo-app';
 
 const tscConfig = require(resolve(demoApp, 'tsconfig.json'));
 
@@ -19,19 +21,12 @@ const vendor = [
 
 task('connect', () => {
     server({
-        root: 'dist/demo-app',
-        livereload: true
+        root: DEMO_APP_OUT_PATH,
     });
 });
 
-task('sass', () => {
-    src('src/demo-app/**/*.scss')
-        .pipe(gulpSass().on('error', gulpSass.logError))
-        .pipe(dest('dist/demo-app'))
-        .pipe(reload());
-});
-
-const compileTask = createCompileTask('demo-app:ts', demoApp, 'dist/demo-app', tscConfig.compilerOptions);
+const compileTask = createCompileTask('demo-app:ts', demoApp, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
+const sassTask = createSassTask('demo-app', 'src/demo-app/**/*.scss', DEMO_APP_OUT_PATH);
 
 const watchers = [
     {
@@ -42,18 +37,18 @@ const watchers = [
     {
         name: 'demo-app:sass',
         path: `${demoApp}/**/*.scss`,
-        tasks: ['sass']
+        tasks: [sassTask]
     }
 ];
 
 const watchTask = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));
 
 task('build', runSequence(
-    createCleanTask('demo-app', 'dist/demo-app'),
-    createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoApp }, 'dist/demo-app'),    
-    createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, 'dist/demo-app/node_modules'),    
+    createCleanTask('demo-app', DEMO_APP_OUT_PATH),
+    createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoApp }, DEMO_APP_OUT_PATH),    
+    createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),    
     compileTask,
-    'sass',
+    sassTask
 ));
 
 task('development', runSequence(

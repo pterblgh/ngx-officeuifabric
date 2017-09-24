@@ -12,13 +12,13 @@ export interface SrcConfig {
  * @param taskName 
  * @param files 
  * @param srcConfig 
- * @param destPath 
+ * @param outPath 
  */
-export function createCopyTask(taskName: string, files: string[], srcConfig: SrcConfig, destPath: string): string {
+export function createCopyTask(taskName: string, files: string[], srcConfig: SrcConfig, outPath: string): string {
     taskName = `copy:${taskName}`;
     task(taskName, () => {
         return src(files.map(file => `${srcConfig.path}/${file}`), srcConfig.base ? { base: srcConfig.base } : undefined)
-            .pipe(dest(destPath));
+            .pipe(dest(outPath));
     });
     return taskName;
 }

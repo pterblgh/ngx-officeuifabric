@@ -10,7 +10,7 @@ import * as gulpSass from 'gulp-sass';
 export function createSassTask(taskName: string, path: string, outPath: string): string {
     taskName = `sass:${taskName}`;
     const scssGlob = '/**/*.scss';
-    if (path.slice(scssGlob.length) !== scssGlob) {
+    if (path.slice(-scssGlob.length) !== scssGlob) {
         path += scssGlob;
     }
     task(taskName, () => {

@@ -5,11 +5,11 @@ import { server, reload } from 'gulp-connect';
 import { runSequence, createCopyTask, createWatchTask, createCleanTask, createCompileTask, createSassTask } from 'gulp-helpers';
 import { buildConfig } from 'build';
 
-const demoApp = resolve(buildConfig.srcDir, 'demo-app');
+const demoAppPath = resolve(buildConfig.srcDir, 'demo-app');
 
 const DEMO_APP_OUT_PATH = 'dist/demo-app';
 
-const tscConfig = require(resolve(demoApp, 'tsconfig.json'));
+const tscConfig = require(resolve(demoAppPath, 'tsconfig.json'));
 
 const vendor = [
     'node_modules/core-js/client/shim.min.js',
@@ -25,18 +25,18 @@ task('connect', () => {
     });
 });
 
-const compileTask = createCompileTask('demo-app:ts', demoApp, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
-const sassTask = createSassTask('demo-app', 'src/demo-app/**/*.scss', DEMO_APP_OUT_PATH);
+const compileTask = createCompileTask('demo-app:ts', demoAppPath, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
+const sassTask = createSassTask('demo-app', demoAppPath, DEMO_APP_OUT_PATH);
 
 const watchers = [
     {
         name: 'demo-app:ts',
-        path: `${demoApp}/**/*.ts`,
+        path: `${demoAppPath}/**/*.ts`,
         tasks: [compileTask]
     },
     {
         name: 'demo-app:sass',
-        path: `${demoApp}/**/*.scss`,
+        path: `${demoAppPath}/**/*.scss`,
         tasks: [sassTask]
     }
 ];
@@ -45,7 +45,7 @@ const watchTask = watchers.map(watch => createWatchTask(watch.name, watch.path, 
 
 task('build', runSequence(
     createCleanTask('demo-app', DEMO_APP_OUT_PATH),
-    createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoApp }, DEMO_APP_OUT_PATH),    
+    createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoAppPath }, DEMO_APP_OUT_PATH),    
     createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),    
     compileTask,
     sassTask
@@ -53,6 +53,7 @@ task('build', runSequence(
 
 task('development', runSequence(
     'build',
+    'build:lib',
     ...watchTask,
     'connect'
 ));

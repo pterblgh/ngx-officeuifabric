@@ -1,11 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FbButtonModule } from 'ngx-fabric';
+import { FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule } from 'ngx-fabric';
 
 import { AppComponent }  from './app.component';
 
 @NgModule({
-  imports: [ BrowserModule, FbButtonModule ],
+  imports: [ BrowserModule, FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]
 })

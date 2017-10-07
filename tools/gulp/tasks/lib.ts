@@ -9,8 +9,13 @@ const tsConfigPath = require(resolve(join(libPath, 'tsconfig.json')));
 
 const LIB_OUT_PATH = 'dist/demo-app/lib';
 
+const sassIncludePaths = [
+    'node_modules/office-ui-fabric-core/src/sass/variables',
+    `${libPath}/common/sass`
+];
+
 const compileTask = createCompileTask('ngx-fabric:ts', libPath, LIB_OUT_PATH, tsConfigPath.compilerOptions);
-const sassTask = createSassTask('ngx-fabric', libPath, LIB_OUT_PATH);
+const sassTask = createSassTask('ngx-fabric', libPath, LIB_OUT_PATH, sassIncludePaths);
 const copyTask = createCopyTask('ngx-fabric:html', ['**/*.html'], { path: libPath }, LIB_OUT_PATH);
 
 const watchers = [
@@ -23,6 +28,11 @@ const watchers = [
         name: 'lib:sass',
         path: `${libPath}/**/*.scss`,
         tasks: [sassTask]
+    },
+    {
+        name: 'lib:html',
+        path: `${libPath}/**/*.html`,
+        tasks: [copyTask]
     }
 ];
 

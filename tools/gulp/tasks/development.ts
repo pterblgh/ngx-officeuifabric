@@ -17,6 +17,7 @@ const vendor = [
     'node_modules/systemjs/dist/system.src.js',
     'node_modules/@angular/**/*.js',
     'node_modules/rxjs/**/*.js',
+    'node_modules/office-ui-fabric-core/dist/css/fabric.css'
 ];
 
 task('connect', () => {
@@ -27,6 +28,7 @@ task('connect', () => {
 
 const compileTask = createCompileTask('demo-app:ts', demoAppPath, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
 const sassTask = createSassTask('demo-app', demoAppPath, DEMO_APP_OUT_PATH);
+const copyAssetsTask = createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoAppPath }, DEMO_APP_OUT_PATH);
 
 const watchers = [
     {
@@ -38,6 +40,11 @@ const watchers = [
         name: 'demo-app:sass',
         path: `${demoAppPath}/**/*.scss`,
         tasks: [sassTask]
+    },
+    {
+        name: 'demo-app:html',
+        path: `${demoAppPath}/**/*.html`,
+        tasks: [copyAssetsTask]
     }
 ];
 
@@ -45,8 +52,8 @@ const watchTask = watchers.map(watch => createWatchTask(watch.name, watch.path, 
 
 task('build', runSequence(
     createCleanTask('demo-app', DEMO_APP_OUT_PATH),
-    createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], { path: demoAppPath }, DEMO_APP_OUT_PATH),    
-    createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),    
+    createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),
+    copyAssetsTask,
     compileTask,
     sassTask
 ));

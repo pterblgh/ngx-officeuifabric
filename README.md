@@ -5,7 +5,7 @@
 Community driven implementation of Office UI Fabric components for Angular.
 
 #### Quick links
-[Development environment](./DEV_ENVIRONMENT.MD)
+[Development environment](./DEV.MD)
 
 ### Project status
 

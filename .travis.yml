@@ -1,9 +1,7 @@
 language: node_js
 node_js:
   - "node"
-before_script:
-  - npm install -g gulp-cli
-script: gulp build
+script: npm run gulp -- build
 cache:
   directories:
     - "node_modules"

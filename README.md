@@ -5,7 +5,7 @@
 Community driven implementation of Office UI Fabric components for Angular.
 
 #### Quick links
-[Development environment](./DEV.MD)
+[Development environment](./DEV.md)
 
 ### Project status
 
@@ -17,4 +17,3 @@ The project is maintained and organized via GitHub projects.
 ### Browser support
 ngx-officeuifabric supports the most recent two versions of all major browsers:
 Chrome (including Android), Firefox, Safari (including iOS), and IE11 / Edge
-

@@ -1,0 +1,52 @@
+@import "_Color.Variables";
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+
+    button {
+        outline: none;  
+        background: white;
+        height: 20px;
+        width: 20px;
+        margin: 0 4px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $ms-color-neutralTertiary;
+        overflow: hidden;
+        transition-property: background, border, border-color;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.23, 1);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:disabled {
+            cursor: default;
+            border-color: $ms-color-neutralTertiaryAlt;
+        }
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    &.is-selected {
+        button {
+            background: $ms-color-blue;
+
+            &:hover {
+                background: $ms-color-themeDark;
+            }
+        }
+    }
+
+    &.disabled {
+        label {
+            color: $ms-color-neutralTertiary;
+        }
+    }
+
+
+}

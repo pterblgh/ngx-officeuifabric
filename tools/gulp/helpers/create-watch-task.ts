@@ -7,7 +7,7 @@ import { task, watch } from 'gulp';
  * @param path 
  * @param trigger 
  */
-export function createWatchTask(taskName: string, path: string, trigger: string[]): string {
+export function createWatchTask(taskName: string, path: string | string[], trigger: string[]): string {
     taskName = `watch:${taskName}`;
     task(taskName, () => watch(path, trigger));
     return taskName;

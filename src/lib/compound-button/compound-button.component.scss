@@ -1,0 +1,47 @@
+@import "_Color.Variables";
+@import "font-weight";
+
+button {
+    border: none;
+    background: $ms-color-neutralLighter;
+    color: $ms-color-neutralPrimary;
+    max-width: 280px;
+    padding: 18px 20px;
+    outline: none;
+    font-weight: $semi-bold;
+    letter-spacing: -0.5px;
+
+    &:hover {
+        cursor: pointer;
+        background: $ms-color-neutralLight;
+        color: $ms-color-neutralDark;
+    }
+
+    &:disabled {
+        background: $ms-color-neutralLighter;
+        cursor: default;
+
+        .flex-container {
+            .title,
+            .description {
+                color: $ms-color-neutralTertiary;
+            }
+        }
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .title {
+            margin-bottom: 5px;
+        }
+
+        .description {
+            color: $ms-color-neutralSecondary;
+            font-size: 12px;
+            font-weight: $normal;
+        }
+    }
+}

@@ -16,9 +16,10 @@
     "stripInternal": false,
     "typeRoots": [
       "../../node_modules/@types/!(node)"
-    ]
-  },
-  "include": [
-      "./**/*.ts"
-  ]
+    ],
+    "baseUrl": "./src/demo-app/",
+    "paths": {
+      "ngx-fabric": ["../lib/index"]
+    }
+  }
 }

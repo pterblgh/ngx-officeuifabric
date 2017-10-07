@@ -1,0 +1,6 @@
+<div class="checkbox-container" [ngClass]="{ 'is-selected': isSelected, 'disabled': disabled }">
+    <button (click)="toggleCheckbox()" [disabled]="disabled" id="button"></button>
+    <label for="button">
+        <ng-content (click)="toggleCheckbox()"></ng-content>
+    </label>
+</div>

@@ -22,7 +22,10 @@
         '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
         '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
         '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-  
+        
+        // fabric
+        'ngx-fabric': 'lib',
+
         // other libraries
         'rxjs':                      'npm:rxjs',
       },
@@ -36,7 +39,16 @@
             }
           }
         },
-        rxjs: { main: 'index' }
+        rxjs: { main: 'index' },
+        'ngx-fabric': {
+          defaultExtension: 'js',
+          main: 'index',
+          meta: {
+            './*.js': {
+              loader: 'systemjs-angular-loader.js'
+            }
+          }
+        }
       }
     });
   })(this);

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Unofficial Angular implementation of Office UI Fabric (https://dev.office.com/fabric#/fabric-js) from Microsoft.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp development"
   },
   "repository": {
     "type": "git",

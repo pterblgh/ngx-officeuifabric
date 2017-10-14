@@ -55,7 +55,8 @@ task('build', runSequence(
     createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),
     copyAssetsTask,
     compileTask,
-    sassTask
+    sassTask,
+    'build:lib'
 ));
 
 task('development', runSequence(

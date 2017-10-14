@@ -46,5 +46,6 @@ task('build:lib', runSequence(
     compileTask,
     sassTask,
     copyTask,
-    ...watchTask
 ));
+
+task('watch:lib', runSequence(...watchTask));

@@ -9,9 +9,13 @@ const tsConfigPath = require(resolve(join(libPath, 'tsconfig.json')));
 
 const LIB_OUT_PATH = 'dist/demo-app/lib';
 
+/**
+ * Include all SASS definitions from office-ui-fabric-core
+ * and from the common/styles library
+ */
 const sassIncludePaths = [
     'node_modules/office-ui-fabric-core/src/sass/variables',
-    `${libPath}/common/sass`
+    `${libPath}/common/styles`
 ];
 
 const compileTask = createCompileTask('ngx-fabric:ts', libPath, LIB_OUT_PATH, tsConfigPath.compilerOptions);
@@ -42,5 +46,6 @@ task('build:lib', runSequence(
     compileTask,
     sassTask,
     copyTask,
-    ...watchTask
 ));
+
+task('watch:lib', runSequence(...watchTask));

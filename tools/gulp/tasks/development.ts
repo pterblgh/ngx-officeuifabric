@@ -48,19 +48,23 @@ const watchers = [
     }
 ];
 
-const watchTask = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));
+const watchTasks = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));
+
+task('watch:demo-app', runSequence(...watchTasks));
 
 task('build', runSequence(
     createCleanTask('demo-app', DEMO_APP_OUT_PATH),
     createCopyTask('demo-app:vendor', vendor, { path: buildConfig.projectDir, base: './node_modules' }, `${DEMO_APP_OUT_PATH}/node_modules`),
     copyAssetsTask,
     compileTask,
-    sassTask
+    sassTask,
+    'build:lib'
 ));
 
 task('development', runSequence(
     'build',
     'build:lib',
-    ...watchTask,
-    'connect'
+    'connect',
+    'watch:demo-app',
+    'watch:lib'
 ));

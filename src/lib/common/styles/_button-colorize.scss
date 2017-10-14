@@ -1,0 +1,21 @@
+@mixin button-colorize(
+    $backgroundColor,
+    $fontColor,
+    $hoverBackgroundColor,
+    $hoverFontColor,
+    $disabledBackgroundColor,
+    $disabledFontColor
+) {
+    background: $backgroundColor;
+    color: $fontColor;
+
+    &:hover {
+        background: $hoverBackgroundColor;
+        color: $hoverFontColor;
+    }
+
+    &:disabled {
+        background: $disabledBackgroundColor;
+        color: $disabledFontColor;
+    }
+}

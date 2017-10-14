@@ -1,25 +1,17 @@
-@import "_Color.Variables";
-@import "font-weight";
+@import "variables";
+@import "button-base";
+@import "button-colorize";
 
 button {
-    border: none;
-    background: $ms-color-neutralLighter;
-    color: $ms-color-neutralPrimary;
+    @include button-reset();
     height: 32px;
     padding: 0 18px;
-    outline: none;
-    font-weight: $semi-bold;
-    letter-spacing: -0.5px;
-
-    &:hover {
-        cursor: pointer;
-        background: $ms-color-neutralLight;
-        color: $ms-color-neutralDark;
-    }
-
-    &:disabled {
-        background: $ms-color-neutralLighter;
-        color: $ms-color-neutralTertiary;
-        cursor: default;
-    }
+    @include button-colorize(
+        $ms-color-neutralLighter,
+        $ms-color-neutralPrimary,
+        $ms-color-neutralLight,
+        $ms-color-neutralDark,
+        $ms-color-neutralLighter,
+        $ms-color-neutralTertiary
+    );
 }

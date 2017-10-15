@@ -3,6 +3,7 @@
     $fontColor,
     $hoverBackgroundColor,
     $hoverFontColor,
+    $activeBackgroundColor,
     $disabledBackgroundColor,
     $disabledFontColor
 ) {
@@ -12,6 +13,10 @@
     &:hover {
         background: $hoverBackgroundColor;
         color: $hoverFontColor;
+    }
+
+    &:active {
+        background: $activeBackgroundColor;
     }
 
     &:disabled {

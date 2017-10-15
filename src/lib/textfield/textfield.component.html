@@ -1,0 +1,5 @@
+<div class="textfield-container">
+    <label for="{{ id }}" [ngClass]="{ 'required': required }">{{ label }}</label>
+    <input type="text" id="{{ id }}" [ngModel]="value" [ngClass]="{'error' : errorMessage.length > 0 }" [placeholder]="placeholder" [required]="required">
+    <span *ngIf="errorMessage.length > 0" class="error-message">{{ errorMessage }}</span>
+</div>

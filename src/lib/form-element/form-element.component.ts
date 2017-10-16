@@ -17,9 +17,7 @@ export class FabricFormElementComponent implements AfterContentInit {
     @ContentChild(FabricInputDirective) private _inputElement: FabricInputDirective;
 
     ngAfterContentInit() {
-        if (!this._inputElement) {
-            console.error('input element not declared');
-        }
+        this._labelElement.required = this._inputElement.required;
     }
 
 }

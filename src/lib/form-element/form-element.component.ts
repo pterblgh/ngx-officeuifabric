@@ -1,6 +1,8 @@
 import { Component, ContentChild, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { FabricInputDirective } from './input.directive';
 import { FabricLabelDirective } from './label.directive';
+import { FormElementService } from './form-element.service';
+
 
 @Component({
     selector: 'fab-form-element',
@@ -13,11 +15,18 @@ import { FabricLabelDirective } from './label.directive';
 })
 export class FabricFormElementComponent implements AfterContentInit {
 
+    constructor(private _formElementService: FormElementService) { }
+
     @ContentChild(FabricLabelDirective) private _labelElement: FabricLabelDirective;
     @ContentChild(FabricInputDirective) private _inputElement: FabricInputDirective;
 
     ngAfterContentInit() {
         this._labelElement.required = this._inputElement.required;
+        if (this._labelElement.for !== this._inputElement.id) {
+            const id = `FabFormElement${this._formElementService.uniqueId}`;
+            this._labelElement.for = id;
+            this._inputElement.id = id;
+        }
     }
 
 }

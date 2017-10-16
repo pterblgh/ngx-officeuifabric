@@ -1,4 +1,4 @@
-import { Component, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, ContentChild, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { FabricInputDirective } from './input.directive';
 import { FabricLabelDirective } from './label.directive';
 
@@ -7,8 +7,9 @@ import { FabricLabelDirective } from './label.directive';
     templateUrl: './form-element.component.html',
     styleUrls: [ './form-element.component.css' ],
     host: {
-        'class': 'fab-form-container',
-    }
+        'class': 'fab-form-container'
+    },
+    encapsulation: ViewEncapsulation.None
 })
 export class FabricFormElementComponent implements AfterContentInit {
 

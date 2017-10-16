@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, OnInit, Input } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Directive({
@@ -11,12 +11,16 @@ import { NgModel } from '@angular/forms';
 })
 export class FabricInputDirective implements OnInit {
 
+    private _element: HTMLInputElement;
+
     constructor(
         private _control: NgModel,
         private _elemRef: ElementRef
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this._element = this._elemRef.nativeElement;
+    }
 
     get required(): boolean {
         return this._elemRef.nativeElement.hasAttribute('required');
@@ -28,6 +32,14 @@ export class FabricInputDirective implements OnInit {
 
     get invalid(): boolean | null {
         return this._control.invalid;
+    }
+
+    get id(): string {
+        return this._element.getAttribute('id') || '';
+    }
+
+    set id(value: string) {
+        this._element.setAttribute('id', value);
     }
 
 }

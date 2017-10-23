@@ -1,7 +1,7 @@
 import { Directive, ElementRef, OnInit } from "@angular/core";
 
 @Directive({
-    selector: '[fabLabel]',
+    selector: 'label[fabLabel], label[fab-label]',
     host: {
         '[class.required]': '_required'
     }

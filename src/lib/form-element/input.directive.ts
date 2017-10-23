@@ -2,7 +2,7 @@ import { Directive, ElementRef, OnInit, Input } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Directive({
-    selector: '[fabInput]',
+    selector: 'input[fabInput], input[fab-input], textarea[fabInput], textarea[fab-input]',
     host: {
         'class': 'fab-input',
         '[class.error]': 'invalid'

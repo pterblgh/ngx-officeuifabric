@@ -67,9 +67,9 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
 
     onMouseLeave(_event: MouseEvent) {
         if (!this.disabled) {
-            this.starStates = new Array(this.max - this.min + 1).fill('inactive').map((_value, index: number) => {
-                return index <= this._currentIndex ? 'active' : 'inactive';
-            });
+            this.starStates = new Array(this.max - this.min + 1)
+                .fill('inactive')
+                .map((_value, index: number) => index <= this._currentIndex ? 'active' : 'inactive');
         }
     }
 

@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   inputField: string;
+  rating = 2;
 
 }

@@ -48,7 +48,7 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
 
     onHover(hoverIndex: number, force: boolean = false) {
         if (!this.disabled || force) {
-            /** If the mouse points to the same place as before do not perform recalculate on the array */
+            /** If the mouse points to the same place as before do not recalculate the array */
             if (this.starStates.indexOf('current') === hoverIndex) return;
 
             this.starStates = this.starStates.map((_value: string, index: number) => {

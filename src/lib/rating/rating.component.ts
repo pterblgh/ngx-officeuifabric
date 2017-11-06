@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Self, Optional, Output, EventEmitter, OnDestr
 import { NgControl, NgModel } from "@angular/forms";
 import { Subscription } from "rxjs/Subscription";
 
-import "rxjs/add/operator/take";
-
 @Component({
     selector: 'fab-rating',
     styleUrls: ['./rating.component.css'],

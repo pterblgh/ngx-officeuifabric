@@ -4,6 +4,12 @@
 
     &.disabled {
         opacity: 0.5;
+
+        svg {
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
     }
 
     svg {

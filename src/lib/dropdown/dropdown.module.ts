@@ -13,4 +13,4 @@ import { FabricDropdownComponent } from './dropdown.component';
         FabricDropdownComponent
     ]
 })
-export class FabricDropdownModule {}
+export class FabricDropdownModule { }

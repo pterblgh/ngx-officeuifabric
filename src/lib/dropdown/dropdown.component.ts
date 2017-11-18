@@ -1,7 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DropdownItem } from './dropdown-item.interface';
 
-@Component({})
+@Component({
+    selector: 'fab-dropdown',
+    templateUrl: './dropdown.component.html',
+    styleUrls: ['./dropdown.component.css']
+})
 export class FabricDropdownComponent implements OnInit {
 
     @Input() placeholder: string;

@@ -14,6 +14,13 @@
             [min]="1"
             [max]="5"
             [(ngModel)]="rating"></fab-rating>
-<fab-dropdown [label]="'Sample placeholder'"
-              [options]="selectInputs"
-              [placeholder]="'Default placeholder'"></fab-dropdown>
+<fab-dropdown [label]="'Sample dropdown'"
+              [items]="selectInputs"
+              [placeholder]="'Please select an item'"
+              (itemSelected)="onItemChanged($event)"></fab-dropdown>
+<fab-dropdown [label]="'Sample dropdown with default selection'"
+              [defaultSelectedKey]="defaultSelectedKey"
+              [items]="selectInputs"
+              [placeholder]="'Please select an item'"
+              (itemSelected)="onItemChanged($event)"></fab-dropdown>
+<pre>{{ selectedItem | json }}</pre>

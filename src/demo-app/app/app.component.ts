@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   inputField: string;
   rating = 2;
   selectInputs: DropdownItem[];
+  defaultSelectedKey = 'C';
+  selectedItem: DropdownItem;
 
   ngOnInit(): void {
     this.selectInputs = [
@@ -28,6 +30,10 @@ export class AppComponent implements OnInit {
       { key: 'I', text: 'Option i' },
       { key: 'J', text: 'Option j' },
     ];
+  }
+
+  onItemChanged(selectedItem: DropdownItem) {
+    this.selectedItem = selectedItem;
   }
 
 }

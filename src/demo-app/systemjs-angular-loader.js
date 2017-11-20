@@ -2,7 +2,7 @@ var templateUrlRegex = /templateUrl\s*:(\s*['"`](.*?)['"`]\s*)/gm;
 var stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
 var stringRegex = /(['`"])((?:[^\\]\\\1|.)*?)\1/g;
 
-module.exports.translate = function(load){
+module.exports.translate = function (load) {
   if (load.source.indexOf('moduleId') != -1) return load;
 
   var url = document.createElement('a');
@@ -22,7 +22,7 @@ module.exports.translate = function(load){
   }
 
   load.source = load.source
-    .replace(templateUrlRegex, function(match, quote, url){
+    .replace(templateUrlRegex, function (match, quote, url) {
       var resolvedUrl = url;
 
       if (url.startsWith('.')) {
@@ -31,7 +31,7 @@ module.exports.translate = function(load){
 
       return 'templateUrl: "' + resolvedUrl + '"';
     })
-    .replace(stylesRegex, function(match, relativeUrls) {
+    .replace(stylesRegex, function (match, relativeUrls) {
       var urls = [];
 
       while ((match = stringRegex.exec(relativeUrls)) !== null) {

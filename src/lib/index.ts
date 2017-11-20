@@ -4,3 +4,4 @@ export * from './checkbox/checkbox.module';
 export * from './form-element/form-element.module';
 export * from './textfield/textfield.module';
 export * from './rating/rating.module';
+export * from './dropdown/index';

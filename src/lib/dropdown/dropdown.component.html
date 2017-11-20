@@ -1,0 +1,18 @@
+<label>
+    {{ label }}
+</label>
+<div class="placeholder-container"
+     (click)="onPlaceholderClicked($event)">
+    <span>{{ _placeholder }}</span>
+</div>
+<div class="options-container"
+     *ngIf="isItemContainerVisible">
+    <div class="option"
+         *ngFor="let item of items"
+         [class.current]="item === currentSelectedItem"
+         [class.header]="item.itemType === DropdownItemType.Header"
+         [class.divider]="item.itemType === DropdownItemType.Divider"
+         (click)="selectItem(item)">
+        <span *ngIf="!(item.itemType && item.itemType === DropdownItemType.Divider)">{{ item.text }}</span>
+    </div>
+</div>

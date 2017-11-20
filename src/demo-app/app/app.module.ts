@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule, FabricFormElementModule, FabricTextfieldModule, FabricRatingModule } from 'ngx-fabric';
+import {
+  FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule,
+  FabricFormElementModule, FabricTextfieldModule, FabricRatingModule,
+  FabricDropdownModule
+} from 'ngx-fabric';
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -16,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     FabricCheckboxModule,
     FabricFormElementModule,
     FabricTextfieldModule,
-    FabricRatingModule
+    FabricRatingModule,
+    FabricDropdownModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

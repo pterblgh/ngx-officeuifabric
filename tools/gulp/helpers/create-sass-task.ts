@@ -10,6 +10,7 @@ const postcss = require('gulp-postcss');
  * @param taskName
  * @param path
  * @param outPath
+ * @param includePaths
  */
 export function createSassTask(taskName: string, path: string, outPath: string, includePaths?: string[]): string {
     taskName = `sass:${taskName}`;

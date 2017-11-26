@@ -57,7 +57,7 @@ label {
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.4);
 
     .option {
-        background: white;
+        background: $ms-color-white;
         box-sizing: border-box;
         cursor: pointer;
         display: block;
@@ -67,7 +67,6 @@ label {
         line-height: 20px;
         padding: 4px 16px;
         position: relative;
-        border: 1px solid transparent;
         word-wrap: break-word;
         overflow-wrap: break-word;
         text-align: left;
@@ -88,7 +87,7 @@ label {
             cursor: default;
 
             &:hover {
-                background: transparent;
+                background-color: $ms-color-white;
             }
         }
 

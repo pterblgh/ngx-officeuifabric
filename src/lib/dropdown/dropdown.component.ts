@@ -12,38 +12,45 @@ import { DropdownItemType } from './dropdown-item-type.enum';
 })
 export class FabricDropdownComponent implements OnInit {
 
-    @Input() placeholder: string;
+    private _placeholder: string;
+    private _currentSelectedItem: DropdownItem;
+    private _isItemContainerVisible = false;
+
     @Input() label: string;
     @Input() items: DropdownItem[];
     @Input() disabled: boolean;
     @Input() defaultSelectedKey: string;
 
+    @Input()
+    get placeholder(): string { return this._placeholder; }
+    set placeholder(value: string) {
+        this._placeholder = value;
+    }
+
     @Output() itemSelected: EventEmitter<DropdownItem>;
 
-    DropdownItemType = DropdownItemType;
-    isItemContainerVisible = false;
-    _placeholder: string;
-    _currentSelectedItem: DropdownItem;
+    get isItemContainerVisible() { return this._isItemContainerVisible; }
+    set isItemContainerVisible(value: boolean) {
+        this._isItemContainerVisible = value;
+    }
 
+    get currentSelectedItem() { return this._currentSelectedItem; }
     set currentSelectedItem(item: DropdownItem | null) {
         if (item) {
             this._currentSelectedItem = item;
-            this._placeholder = item.text;
+            this.placeholder = item.text;
             this.isItemContainerVisible = false;
             this.itemSelected.emit(item);
         }
     }
 
-    get currentSelectedItem() {
-        return this._currentSelectedItem;
-    }
+    DropdownItemType = DropdownItemType;
 
     constructor() {
         this.itemSelected = new EventEmitter();
     }
 
     ngOnInit(): void {
-        this._placeholder = this.placeholder;
         if (this.defaultSelectedKey) {
             const item = this.items.find(item => item.key === this.defaultSelectedKey);
             this.currentSelectedItem = item || null;

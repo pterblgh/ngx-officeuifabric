@@ -1,18 +1,14 @@
 <label>
     {{ label }}
 </label>
-<div class="placeholder-container"
-     (click)="onPlaceholderClicked($event)">
-    <span>{{ _placeholder }}</span>
+<div class="placeholder-container" (click)="onPlaceholderClicked($event)" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+    <span>{{ placeholder }}</span>
 </div>
-<div class="options-container"
-     *ngIf="isItemContainerVisible">
-    <div class="option"
-         *ngFor="let item of items"
-         [class.current]="item === currentSelectedItem"
-         [class.header]="item.itemType === DropdownItemType.Header"
-         [class.divider]="item.itemType === DropdownItemType.Divider"
-         (click)="selectItem(item)">
-        <span *ngIf="!(item.itemType && item.itemType === DropdownItemType.Divider)">{{ item.text }}</span>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isItemContainerVisible">
+    <div class="options-container">
+        <div class="option" *ngFor="let item of items" [class.current]="item === currentSelectedItem" [class.header]="item.itemType === DropdownItemType.Header"
+            [class.divider]="item.itemType === DropdownItemType.Divider" (click)="selectItem(item)">
+            <span *ngIf="!(item.itemType && item.itemType === DropdownItemType.Divider)">{{ item.text }}</span>
+        </div>
     </div>
-</div>
+</ng-template>

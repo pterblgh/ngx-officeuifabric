@@ -1,4 +1,4 @@
-import { task, src, dest, Gulp } from 'gulp';
+import { task, src, dest} from 'gulp';
 
 export interface SrcConfig {
     path: string;

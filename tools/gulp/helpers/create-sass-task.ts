@@ -1,6 +1,5 @@
 import { task, src, dest } from 'gulp';
 import * as gulpSass from 'gulp-sass';
-import { join } from 'path';
 import * as autoprefixer from 'autoprefixer';
 
 /** gulp-postcss has no type definitions */
@@ -11,6 +10,7 @@ const postcss = require('gulp-postcss');
  * @param taskName
  * @param path
  * @param outPath
+ * @param includePaths
  */
 export function createSassTask(taskName: string, path: string, outPath: string, includePaths?: string[]): string {
     taskName = `sass:${taskName}`;

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Self, Optional, Output, EventEmitter, OnDestroy } from "@angular/core";
-import { NgControl, NgModel } from "@angular/forms";
+import { Component, OnInit, Input, Self, Optional, OnDestroy } from "@angular/core";
+import { NgModel } from "@angular/forms";
 import { Subscription } from "rxjs/Subscription";
 
 @Component({

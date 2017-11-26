@@ -1,6 +1,5 @@
 import { task, src, dest } from 'gulp';
 import * as gulpSass from 'gulp-sass';
-import { join } from 'path';
 import * as autoprefixer from 'autoprefixer';
 
 /** gulp-postcss has no type definitions */

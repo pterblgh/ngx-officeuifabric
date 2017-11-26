@@ -1,7 +1,6 @@
 import { resolve } from 'path';
-import { task, watch, src, dest } from 'gulp';
-import * as gulpSass from 'gulp-sass';
-import { server, reload } from 'gulp-connect';
+import { task} from 'gulp';
+import { server} from 'gulp-connect';
 import { runSequence, createCopyTask, createWatchTask, createCleanTask, createCompileTask, createSassTask } from 'gulp-helpers';
 import { buildConfig } from 'build';
 

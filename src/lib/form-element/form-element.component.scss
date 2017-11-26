@@ -34,11 +34,10 @@
                 text-overflow: ellipsis;
                 width: 100%;
                 margin: 0;
-                padding: 0;
+                padding: 0 12px;
                 outline: 0;
                 border: 1px solid $ms-color-neutralTertiary;
                 height: 32px;
-                padding: 0 12px;
                 color: $ms-color-neutralSecondary;
 
                 &:hover,

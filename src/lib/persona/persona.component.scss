@@ -22,6 +22,15 @@
 }
 
 @mixin persona-left ($size) {
+  $dotSize: map-get((
+    24px: 8px,
+    32px: 8px,
+    40px: 12px,
+    56px: 16px,
+    72px: 20px,
+    100px: 28px
+  ), $size);
+
   .persona-left {
     @if $size == 10px {
       .dot {
@@ -33,11 +42,38 @@
         width: $size;
         height: $size;
       }
+      .dot {
+        @include circle($dotSize);
+        @if $size != 10px {
+          position: absolute;
+          right: 0;
+          bottom: 1.25%;
+        }
+      }
     }
   }
 }
 
-@mixin generateStylesForSize($className, $size, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize, $padding) {
+@mixin generatePersonaPresenceColors() {
+  @each $item in (none offline online away dnd blocked busy) {
+    $color: map-get((
+      none: 'transparent',
+      offline: #E81123,
+      online: #7FBA00,
+      away: #E81123,
+      dnd: #E81123,
+      blocked: #E81123,
+      busy: #FCD116
+    ), $item);
+    &.persona-presence-#{$item} {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin generateStylesForSize($className, $size, $primaryFontSize, $secondaryFontSize, $padding) {
+  $tertiaryFontSize: 10px;
+
   &.#{$className} {
     @include persona-left($size);
     @include persona-right($padding, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize);
@@ -49,8 +85,16 @@
   align-items: center;
 
   .persona-left {
+    position: relative;
+
     img {
       border-radius: 50%;
+    }
+
+    .dot {
+      display: block;
+      border: 2px solid white;
+      @include generatePersonaPresenceColors();
     }
   }
 
@@ -75,12 +119,12 @@
     }
   }
 
-  @include generateStylesForSize(size10, 10px, 12px, 10px, 10px, 10px);
-  @include generateStylesForSize(size24, 24px, 14px, 12px, 10px, 10px);
-  @include generateStylesForSize(size32, 32px, 14px, 12px, 10px, 10px);
-  @include generateStylesForSize(size40, 40px, 14px, 12px, 10px, 10px);
-  @include generateStylesForSize(size56, 56px, 17px, 12px, 10px, 10px);
-  @include generateStylesForSize(size72, 72px, 17px, 12px, 10px, 10px);
-  @include generateStylesForSize(size100, 100px, 21px, 14px, 10px, 12px);
+  @include generateStylesForSize(size10, 10px, 12px, 10px, 10px);
+  @include generateStylesForSize(size24, 24px, 14px, 12px, 10px);
+  @include generateStylesForSize(size32, 32px, 14px, 12px, 10px);
+  @include generateStylesForSize(size40, 40px, 17px, 12px, 10px);
+  @include generateStylesForSize(size56, 56px, 21px, 14px, 10px);
+  @include generateStylesForSize(size72, 72px, 21px, 14px, 10px);
+  @include generateStylesForSize(size100, 100px, 21px, 14px, 12px);
 
 }

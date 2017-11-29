@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownItem, DropdownItemType, PersonaSize } from 'ngx-fabric';
+import { DropdownItem, DropdownItemType, PersonaSize, PersonaPresence } from 'ngx-fabric';
 
 @Component({
   selector: 'my-app',
@@ -7,6 +7,16 @@ import { DropdownItem, DropdownItemType, PersonaSize } from 'ngx-fabric';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  private presenceArray = [
+    PersonaPresence.None,
+    PersonaPresence.Offline,
+    PersonaPresence.Online,
+    PersonaPresence.Away,
+    PersonaPresence.Dnd,
+    PersonaPresence.Blocked,
+    PersonaPresence.Busy,
+  ];
 
   inputField: string;
   rating = 2;
@@ -19,7 +29,8 @@ export class AppComponent implements OnInit {
     name: 'Annie Lindqvist',
     position: 'Software Engineer',
     status: 'In a meeting',
-    imageUrl: 'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png'
+    imageUrl: 'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png',
+    presence: this.presenceArray[Math.floor(Math.random() * this.presenceArray.length)]
   };
 
   ngOnInit(): void {

@@ -1,9 +1,9 @@
 export enum PersonaPresence {
-  None,
-  Offline,
-  Online,
-  Away,
-  Dnd,
-  Blocked,
-  Busy,
+  None = 'none',
+  Offline = 'offline',
+  Online = 'online',
+  Away = 'away',
+  Dnd = 'dnd',
+  Blocked = 'blocked',
+  Busy = 'busy'
 }

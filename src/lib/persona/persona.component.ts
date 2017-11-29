@@ -29,6 +29,10 @@ export class FabricPersonaComponent implements OnInit {
   @Input() showSecondaryText = true;
   @Input() coinSize?: number;
 
+  get PersonaPresence() {
+    return PersonaPresence;
+  }
+
   get realSize(): number {
     return this._size;
   }

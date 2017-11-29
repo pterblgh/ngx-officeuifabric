@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownItem, DropdownItemType } from 'ngx-fabric';
+import { DropdownItem, DropdownItemType, PersonaSize } from 'ngx-fabric';
 
 @Component({
   selector: 'my-app',
@@ -13,6 +13,14 @@ export class AppComponent implements OnInit {
   selectInputs: DropdownItem[];
   defaultSelectedKey = 'C';
   selectedItem: DropdownItem;
+  PersonaSize = PersonaSize;
+  hidePersonaDetails = false;
+  persona = {
+    name: 'Annie Lindqvist',
+    position: 'Software Engineer',
+    status: 'In a meeting',
+    imageUrl: 'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png'
+  };
 
   ngOnInit(): void {
     this.selectInputs = [

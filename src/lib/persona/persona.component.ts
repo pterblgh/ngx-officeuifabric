@@ -10,24 +10,33 @@ import { PersonaPresence } from './persona-presence.enum';
 })
 export class FabricPersonaComponent implements OnInit {
 
+  private _size: number;
+
   @Input() primaryText?: string;
-  @Input() size?: PersonaSize;
+  @Input() size = PersonaSize.Size40;
   @Input() imageShouldFadeIn?: boolean;
   @Input() imageShouldStartVisible?: boolean;
   @Input() imageUrl?: string;
   @Input() imageAlt?: string;
   @Input() imageInitials?: string;
-  @Input() initialsColor?: PersonaInitialsColor;
+  @Input() initialsColor = PersonaInitialsColor.Blue;
   @Input() presence?: PersonaPresence;
   @Input() secondaryText?: string;
   @Input() tertiaryText?: string;
   @Input() optionalText?: string;
-  @Input() hidePersonaDetails?: boolean;
+  @Input() hidePersonaDetails = false;
   @Input() className?: string;
-  @Input() showSecondaryText?: boolean;
+  @Input() showSecondaryText = true;
   @Input() coinSize?: number;
 
+  get realSize(): number {
+    return this._size;
+  }
+  set realSize(value: number) {
+    this._size = value;
+  }
+
   ngOnInit(): void {
-    console.log(`FabricPersonaComponent created`);
+    this.realSize = Number((<string>this.size).split('size')[1]);
   }
 }

@@ -10,7 +10,7 @@
              [cdkConnectedOverlayOrigin]="trigger"
              [cdkConnectedOverlayOpen]="isItemContainerVisible"
              (backdropClick)="onBackdropClicked()">
-  <div class="options-container" [@actionEditor]="true">
+  <div class="options-container" [@actionEditor]="true" [style.width.px]="elementWidth">
     <div class="option" *ngFor="let item of items" [class.current]="item === currentSelectedItem"
          [class.header]="item.itemType === DropdownItemType.Header"
          [class.divider]="item.itemType === DropdownItemType.Divider" (click)="selectItem(item)">

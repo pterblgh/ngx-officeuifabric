@@ -3,6 +3,7 @@ import { DropdownItem } from './dropdown-item.interface';
 import { DropdownItemType } from './dropdown-item-type.enum';
 import { CdkConnectedOverlay } from '@angular/cdk/overlay';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'fab-dropdown',
@@ -26,6 +27,9 @@ export class FabricDropdownComponent implements OnInit {
   private _placeholder: string;
   private _currentSelectedItem: DropdownItem;
   private _isItemContainerVisible = false;
+  private _width: number;
+
+  @ViewChild(CdkOverlayOrigin) private _cdkOverlayOrigin: CdkOverlayOrigin;
   @ViewChild(CdkConnectedOverlay) private _cdkConnectedOverlay: CdkConnectedOverlay;
 
   @Input() label: string;
@@ -54,6 +58,13 @@ export class FabricDropdownComponent implements OnInit {
       this.isItemContainerVisible = false;
       this.itemSelected.emit(item);
     }
+  }
+
+  get elementWidth() {
+    if (!this._width) {
+      this._width = this._cdkOverlayOrigin.elementRef.nativeElement.offsetWidth;
+    }
+    return this._width;
   }
 
   DropdownItemType = DropdownItemType;

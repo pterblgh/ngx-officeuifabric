@@ -5,3 +5,4 @@ export * from './form-element/form-element.module';
 export * from './textfield/textfield.module';
 export * from './rating/rating.module';
 export * from './dropdown/index';
+export * from './persona/public-api';

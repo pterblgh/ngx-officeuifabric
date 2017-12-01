@@ -1,7 +1,21 @@
+@import 'persona-mixins';
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
 @mixin generateForSize($className, $size) {
+  $fontSizeMap: (24px: 11px, 28px: 12px);
+
   &.#{$className} {
     .persona-pill-container {
       height: $size;
+
+      .initials {
+        @include size($size);
+        font-size: map-get($fontSizeMap, $size);
+      }
     }
   }
 }
@@ -12,10 +26,25 @@
 }
 
 .persona-pill-container {
+  display: inline-flex;
+  align-items: center;
   border-radius: 30px;
   background-color: #F4F4F4;
 
   > * {
     font-size: 12px;
+  }
+
+  .initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    @include generateInitialsColorFor(persona-color);
+  }
+
+  .primary-text {
+    padding: 0 6px;
   }
 }

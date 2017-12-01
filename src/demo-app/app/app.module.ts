@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {
   FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule,
   FabricFormElementModule, FabricTextfieldModule, FabricRatingModule,
-  FabricDropdownModule
+  FabricDropdownModule, FabricPersonaModule
 } from 'ngx-fabric';
 
 import { AppComponent } from './app.component';
@@ -23,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FabricFormElementModule,
     FabricTextfieldModule,
     FabricRatingModule,
-    FabricDropdownModule
+    FabricDropdownModule,
+    FabricPersonaModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

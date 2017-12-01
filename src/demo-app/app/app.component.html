@@ -2,12 +2,42 @@
 <fab-compound-button description="You can create a new account here.">Create account</fab-compound-button>
 <fab-checkbox [disabled]="false">Standard checkbox</fab-checkbox>
 <fab-form-element>
-    <label fabLabel for="test">Standard</label>
-    <input fabInput type="text" id="test" placeholder="Standard input field" [(ngModel)]="inputField">
+  <label fabLabel for="test">Standard</label>
+  <input fabInput type="text" id="test" placeholder="Standard input field" [(ngModel)]="inputField">
 </fab-form-element>
 <fab-rating ngDefaultControl [min]="1" [max]="5" [(ngModel)]="rating"></fab-rating>
-<fab-dropdown [label]="'Sample dropdown'" [items]="selectInputs" [placeholder]="'Please select an item'"
-              (itemSelected)="onItemChanged($event)"></fab-dropdown>
-<fab-dropdown [label]="'Sample dropdown with default selection'" [defaultSelectedKey]="defaultSelectedKey"
-              [items]="selectInputs"
-              [placeholder]="'Please select an item'" (itemSelected)="onItemChanged($event)"></fab-dropdown>
+<fab-dropdown [label]="'Sample dropdown'" [items]="selectInputs" [placeholder]="'Please select an item'" (itemSelected)="onItemChanged($event)"></fab-dropdown>
+<fab-dropdown [label]="'Sample dropdown with default selection'" [defaultSelectedKey]="defaultSelectedKey" [items]="selectInputs"
+  [placeholder]="'Please select an item'" (itemSelected)="onItemChanged($event)"></fab-dropdown>
+
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size10" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size10"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size24" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size24"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size32" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size32"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size40" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size40"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size56" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size56"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size72" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size72"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [imageUrl]="persona.imageUrl" [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status"
+  [size]="PersonaSize.Size100" [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+<fab-persona [primaryText]="persona.name" [secondaryText]="persona.position" [tertiaryText]="persona.status" [size]="PersonaSize.Size100"
+  [hidePersonaDetails]="hidePersonaDetails" [presence]="persona.presence"></fab-persona>
+
+<fab-persona-pill [size]="PersonaPillSize.Size24" [primaryText]="persona.name" [presence]="persona.presence"></fab-persona-pill>
+<fab-persona-pill [size]="PersonaPillSize.Size28" [primaryText]="persona.name" [presence]="persona.presence"></fab-persona-pill>

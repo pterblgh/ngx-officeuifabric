@@ -1,0 +1,42 @@
+@mixin generateInitialsColorFor($className) {
+  $colorNames: lightblue blue darkblue teal lightgreen green darkgreen magenta purple black orange red darkred;
+  $colorMap: (
+    lightblue: #00bcf2,
+    blue: #0078d7,
+    darkblue: #002050,
+    teal: #008272,
+    lightgreen: #bad80a,
+    green: #107c10,
+    darkgreen: #004b1c,
+    magenta: #b4009e,
+    purple: #5c2d91,
+    black: #000000,
+    orange: #d83b01,
+    red: #e81123,
+    darkred: #a80000
+  );
+  @each $colorName in $colorNames {
+    $color: map-get($colorMap, $colorName);
+    &.#{$className}-#{$colorName} {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin generatePersonaPresenceColorsFor($className) {
+  $presenceClassNames: (none offline online away dnd blocked busy);
+  $colorMap: (
+    none: 'transparent',
+    offline: #E81123,
+    online: #7FBA00,
+    away: #E81123,
+    dnd: #E81123,
+    blocked: #E81123,
+    busy: #FCD116
+  );
+  @each $item in $presenceClassNames {
+    &.#{$className}-#{$item} {
+      background-color: map-get($colorMap, $item);
+    }
+  }
+}

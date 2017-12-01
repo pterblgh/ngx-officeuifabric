@@ -1,0 +1,76 @@
+@import 'persona-mixins';
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin generateForSize($className, $size) {
+  $fontSizeMap: (24px: 11px, 28px: 12px);
+  $presenceSizeMap: (24px: 8px, 28px: 10px);
+
+  &.#{$className} {
+    .persona-pill-container {
+      height: $size;
+
+      .initials-container {
+        .initials {
+          @include size($size);
+          font-size: map-get($fontSizeMap, $size);
+        }
+
+        .dot {
+          @include size(map-get($presenceSizeMap, $size));
+        }
+      }
+    }
+  }
+}
+
+:host {
+  @include generateForSize(size24, 24px);
+  @include generateForSize(size28, 28px);
+}
+
+.persona-pill-container {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #F4F4F4;
+
+  > * {
+    font-size: 12px;
+  }
+
+  &:hover {
+    background-color: #EAEAEA;
+  }
+
+  .initials-container {
+    position: relative;
+
+    .initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      @include generateInitialsColorFor(persona-color);
+    }
+
+    .dot {
+      display: block;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      box-sizing: border-box;
+      @include generatePersonaPresenceColorsFor(persona-presence);
+    }
+  }
+
+  .primary-text {
+    padding: 0 6px;
+  }
+}

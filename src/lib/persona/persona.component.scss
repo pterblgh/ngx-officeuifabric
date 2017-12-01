@@ -1,0 +1,144 @@
+@import 'persona-mixins';
+
+@mixin fontSizeToClass($classList, $fontSize) {
+  @each $item in $classList {
+    .#{$item} {
+      font-size: $fontSize;
+    }
+  }
+}
+
+@mixin persona-right($padding, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize) {
+  .persona-right {
+    padding: 0 $padding;
+    @include fontSizeToClass(primary-text, $primaryFontSize);
+    @include fontSizeToClass((secondary-text, optional-text), $secondaryFontSize);
+    @include fontSizeToClass(tertiary-text, $tertiaryFontSize);
+  }
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin persona-left ($size) {
+  $dotSizeMap: (
+    24px: 8px,
+    32px: 8px,
+    40px: 12px,
+    56px: 16px,
+    72px: 20px,
+    100px: 28px
+  );
+
+  $initialFontSizeMap: (
+    24px: 11px,
+    32px: 12px,
+    40px: 17px,
+    56px: 21px,
+    72px: 28px,
+    100px: 42px
+  );
+
+  .persona-left {
+    @if $size == 10px {
+      .dot {
+        @include circle(8px);
+        display: block;
+      }
+    } @else {
+      img,
+      span.initial {
+        width: $size;
+        height: $size;
+      }
+
+      .dot {
+        @include circle(map-get($dotSizeMap, $size));
+        @if $size != 10px {
+          position: absolute;
+          right: 0;
+          bottom: 0.75%;
+        }
+      }
+
+      .initial {
+        font-size: map-get($initialFontSizeMap, $size);
+      }
+    }
+  }
+}
+
+@mixin generateStylesForSize($className, $size, $primaryFontSize, $secondaryFontSize, $padding) {
+  $tertiaryFontSize: 10px;
+
+  &.#{$className} {
+    height: $size;
+    @include persona-left($size);
+    @include persona-right($padding, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize);
+  }
+}
+
+.persona-container {
+  display: flex;
+  align-items: center;
+
+  .persona-left {
+    position: relative;
+
+    img,
+    span.initial {
+      border-radius: 50%;
+    }
+
+    .dot {
+      display: block;
+      border: 2px solid white;
+      @include generatePersonaPresenceColorsFor(persona-presence);
+    }
+
+    .initial {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      @include generateInitialsColorFor(persona-color);
+    }
+  }
+
+  .persona-right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .primary-text,
+    .secondary-text,
+    .tertiary-text,
+    .optional-text {
+      display: block;
+      font-weight: 400;
+    }
+
+    .primary-text {
+      color: #333;
+    }
+
+    .secondary-text,
+    .tertiary-text,
+    .optional-text {
+      color: #666;
+    }
+  }
+
+  @include generateStylesForSize(size10, 10px, 12px, 10px, 10px);
+  @include generateStylesForSize(size24, 24px, 14px, 12px, 10px);
+  @include generateStylesForSize(size32, 32px, 14px, 12px, 10px);
+  @include generateStylesForSize(size40, 40px, 17px, 12px, 10px);
+  @include generateStylesForSize(size56, 56px, 21px, 14px, 10px);
+  @include generateStylesForSize(size72, 72px, 21px, 14px, 10px);
+  @include generateStylesForSize(size100, 100px, 21px, 14px, 12px);
+
+}

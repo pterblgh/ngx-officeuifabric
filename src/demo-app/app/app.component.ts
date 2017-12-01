@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownItem, DropdownItemType } from 'ngx-fabric';
+import { DropdownItem, DropdownItemType, PersonaSize, PersonaPillSize, PersonaPresence } from 'ngx-fabric';
 
 @Component({
   selector: 'my-app',
@@ -8,11 +8,33 @@ import { DropdownItem, DropdownItemType } from 'ngx-fabric';
 })
 export class AppComponent implements OnInit {
 
+  private presenceArray = [
+    PersonaPresence.None,
+    PersonaPresence.Offline,
+    PersonaPresence.Online,
+    PersonaPresence.Away,
+    PersonaPresence.Dnd,
+    PersonaPresence.Blocked,
+    PersonaPresence.Busy,
+  ];
+
   inputField: string;
   rating = 2;
   selectInputs: DropdownItem[];
   defaultSelectedKey = 'C';
   selectedItem: DropdownItem;
+
+  PersonaSize = PersonaSize;
+  PersonaPillSize = PersonaPillSize;
+
+  hidePersonaDetails = false;
+  persona = {
+    name: 'Annie Lindqvist',
+    position: 'Software Engineer',
+    status: 'In a meeting',
+    imageUrl: 'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png',
+    presence: this.presenceArray[Math.floor(Math.random() * this.presenceArray.length)]
+  };
 
   ngOnInit(): void {
     this.selectInputs = [

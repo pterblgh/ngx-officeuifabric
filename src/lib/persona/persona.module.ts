@@ -14,6 +14,9 @@ import { FabricPersonaPillComponent } from "./persona-pill.component";
   exports: [
     FabricPersonaComponent,
     FabricPersonaPillComponent
+  ],
+  providers: [
+    FabricPersonaService
   ]
 })
 export class FabricPersonaModule { }

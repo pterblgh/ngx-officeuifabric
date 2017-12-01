@@ -1,0 +1,35 @@
+.tag-container {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F4F4F4;
+
+  &:hover {
+    background-color: #EAEAEA;
+  }
+
+  .text {
+    padding: 5px 0 5px 8px;
+    font-size: 14px;
+  }
+
+  .close-container {
+    width: 28px;
+    height: 28px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #DADADA;
+      cursor: pointer;
+    }
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

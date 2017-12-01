@@ -6,3 +6,4 @@ export * from './textfield/textfield.module';
 export * from './rating/rating.module';
 export * from './dropdown/index';
 export * from './persona/public-api';
+export * from './tag/tag.module';

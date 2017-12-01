@@ -25,7 +25,11 @@ export class FabricPersonaPillComponent implements OnInit {
   constructor(private readonly personaService: FabricPersonaService) { }
 
   ngOnInit(): void {
-    console.log(`FabricPersonaPillComponent initialized`);
+    if (this.primaryText) {
+      const calculatedInitials = this.personaService.calculateInitials(this.primaryText);
+      this.imageInitials = this.imageInitials || calculatedInitials.imageInitials;
+      this.initialsColor = this.initialsColor || calculatedInitials.initialsColor;
+    }
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PersonaPillSize } from './persona-pill-size.enum';
 import { PersonaInitialsColor } from './persona-initials-colors.enum';
 import { PersonaPresence } from './persona-presence.enum';
+import { FabricPersonaService } from './persona.service';
 
 @Component({
   selector: 'fab-persona-pill',
@@ -20,6 +21,8 @@ export class FabricPersonaPillComponent implements OnInit {
   @Input() presence?: PersonaPresence;
   @Input() showPresence = true;
   @Input() hidePersonaDetails = false;
+
+  constructor(private readonly personaService: FabricPersonaService) { }
 
   ngOnInit(): void {
     console.log(`FabricPersonaPillComponent initialized`);

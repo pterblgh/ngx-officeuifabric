@@ -1,7 +1,8 @@
 <div class="persona-container {{ size || 'size48' }}">
   <div class="persona-left">
     <img *ngIf="imageUrl && realSize > 10" [src]="imageUrl" [alt]="imageAlt">
-    <span *ngIf="presence !== PersonaPresence.None" class="dot persona-presence-{{ presence }}"></span>
+    <span *ngIf="presence !== PersonaPresence.None && showPresence" class="dot persona-presence-{{ presence }}"></span>
+    <span *ngIf="!imageUrl && realSize > 10" class="initial persona-color-{{ initialsColor }}">{{ imageInitials }}</span>
   </div>
   <div class="persona-right" *ngIf="!hidePersonaDetails">
     <span class="primary-text">{{ primaryText }}</span>

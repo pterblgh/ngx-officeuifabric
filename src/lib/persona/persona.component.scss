@@ -8,7 +8,7 @@
 
 @mixin persona-right($padding, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize) {
   .persona-right {
-    padding: $padding;
+    padding: 0 $padding;
     @include fontSizeToClass(primary-text, $primaryFontSize);
     @include fontSizeToClass((secondary-text, optional-text), $secondaryFontSize);
     @include fontSizeToClass(tertiary-text, $tertiaryFontSize);
@@ -22,14 +22,23 @@
 }
 
 @mixin persona-left ($size) {
-  $dotSize: map-get((
+  $dotSizeMap: (
     24px: 8px,
     32px: 8px,
     40px: 12px,
     56px: 16px,
     72px: 20px,
     100px: 28px
-  ), $size);
+  );
+
+  $initialFontSizeMap: (
+    24px: 11px,
+    32px: 12px,
+    40px: 17px,
+    56px: 21px,
+    72px: 28px,
+    100px: 42px
+  );
 
   .persona-left {
     @if $size == 10px {
@@ -38,17 +47,23 @@
         display: block;
       }
     } @else {
-      img {
+      img,
+      span.initial {
         width: $size;
         height: $size;
       }
+
       .dot {
-        @include circle($dotSize);
+        @include circle(map-get($dotSizeMap, $size));
         @if $size != 10px {
           position: absolute;
           right: 0;
-          bottom: 1.25%;
+          bottom: 0.75%;
         }
+      }
+
+      .initial {
+        font-size: map-get($initialFontSizeMap, $size);
       }
     }
   }
@@ -75,8 +90,34 @@
   $tertiaryFontSize: 10px;
 
   &.#{$className} {
+    height: $size;
     @include persona-left($size);
     @include persona-right($padding, $primaryFontSize, $secondaryFontSize, $tertiaryFontSize);
+  }
+}
+
+@mixin generateColorsForInitials() {
+  $colorNames: lightblue blue darkblue teal lightgreen green darkgreen magenta purple black orange red darkred;
+  $colorMap: (
+    lightblue: #00bcf2,
+    blue: #0078d7,
+    darkblue: #002050,
+    teal: #008272,
+    lightgreen: #bad80a,
+    green: #107c10,
+    darkgreen: #004b1c,
+    magenta: #b4009e,
+    purple: #5c2d91,
+    black: #000000,
+    orange: #d83b01,
+    red: #e81123,
+    darkred: #a80000
+  );
+  @each $colorName in $colorNames {
+    $color: map-get($colorMap, $colorName);
+    &.persona-color-#{$colorName} {
+      background-color: $color;
+    }
   }
 }
 
@@ -87,7 +128,8 @@
   .persona-left {
     position: relative;
 
-    img {
+    img,
+    span.initial {
       border-radius: 50%;
     }
 
@@ -96,9 +138,21 @@
       border: 2px solid white;
       @include generatePersonaPresenceColors();
     }
+
+    .initial {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      @include generateColorsForInitials();
+    }
   }
 
   .persona-right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .primary-text,
     .secondary-text,

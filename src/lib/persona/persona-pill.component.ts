@@ -6,7 +6,7 @@ import { PersonaPillSize } from './persona-pill-size.enum';
   templateUrl: './persona-pill.component.html',
   styleUrls: ['./persona-pill.component.css'],
   host: {
-    'class': 'size'
+    '[class]': 'size'
   }
 })
 export class FabricPersonaPillComponent implements OnInit {

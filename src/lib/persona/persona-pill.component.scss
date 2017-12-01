@@ -1,10 +1,21 @@
 @mixin generateForSize($className, $size) {
   &.#{$className} {
-    height: $size;
+    .persona-pill-container {
+      height: $size;
+    }
   }
 }
 
 :host {
   @include generateForSize(size24, 24px);
   @include generateForSize(size28, 28px);
+}
+
+.persona-pill-container {
+  border-radius: 30px;
+  background-color: #F4F4F4;
+
+  > * {
+    font-size: 12px;
+  }
 }

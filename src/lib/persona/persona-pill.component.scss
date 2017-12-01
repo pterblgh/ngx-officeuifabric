@@ -1,0 +1,10 @@
+@mixin generateForSize($className, $size) {
+  &.#{$className} {
+    height: $size;
+  }
+}
+
+:host {
+  @include generateForSize(size24, 24px);
+  @include generateForSize(size28, 28px);
+}

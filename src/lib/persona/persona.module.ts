@@ -1,16 +1,19 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FabricPersonaComponent } from "./persona.component";
+import { FabricPersonaPillComponent } from "./persona-pill.component";
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    FabricPersonaComponent
+    FabricPersonaComponent,
+    FabricPersonaPillComponent
   ],
   exports: [
-    FabricPersonaComponent
+    FabricPersonaComponent,
+    FabricPersonaPillComponent
   ]
 })
-export class FabricPersonaModule {}
+export class FabricPersonaModule { }

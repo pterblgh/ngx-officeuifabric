@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownItem, DropdownItemType, PersonaSize, PersonaPresence } from 'ngx-fabric';
+import { DropdownItem, DropdownItemType, PersonaSize, PersonaPillSize, PersonaPresence } from 'ngx-fabric';
 
 @Component({
   selector: 'my-app',
@@ -23,7 +23,10 @@ export class AppComponent implements OnInit {
   selectInputs: DropdownItem[];
   defaultSelectedKey = 'C';
   selectedItem: DropdownItem;
+
   PersonaSize = PersonaSize;
+  PersonaPillSize = PersonaPillSize;
+
   hidePersonaDetails = false;
   persona = {
     name: 'Annie Lindqvist',

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { RadioLabelDirection } from './radio-label-direction.enum';
+import { Component, OnInit, Input, ChangeDetectorRef, Host, Optional, Inject, forwardRef } from '@angular/core';
+import { FabricRadioGroupDirective } from './radio-group.directive';
 
 @Component({
   selector: 'fab-radio',
@@ -8,17 +8,18 @@ import { RadioLabelDirection } from './radio-label-direction.enum';
 })
 export class FabricRadioComponent implements OnInit {
 
-  private static _nextId = -1;
+  private static _nextId = 0;
 
   @Input() label: string;
   @Input() value: any;
   @Input() name: string;
   @Input() checked = false;
-  @Input() labelDirection: RadioLabelDirection;
-  @Input() id = ++FabricRadioComponent._nextId;
+  @Input() id = FabricRadioComponent._nextId++;
+
+  constructor( @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) { }
 
   ngOnInit(): void {
-    console.log(`FabRadioComponent initialized`);
+    console.log(`FabricRadioComponent initialized`);
   }
 
   onInputChange(event: Event) {

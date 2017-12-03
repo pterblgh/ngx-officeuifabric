@@ -1,1 +1,4 @@
-<h1>radio works</h1>
+<div class="radio-container">
+  <input type="radio" [attr.name]="name" [checked]="checked" [attr.id]="id" (change)="onInputChange($event)" (click)="onInputClick($event)">
+  <label [attr.for]="id">{{ label }}</label>
+</div>

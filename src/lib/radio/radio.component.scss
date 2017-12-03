@@ -1,25 +1,25 @@
+@mixin radioButton($size, $position, $borderColor: none) {
+  content: '';
+  width: $size;
+  height: $size;
+  position: absolute;
+  left: $position;
+  top: $position;
+  @if $borderColor != none {
+    border: 1px solid $borderColor;
+  }
+  border-radius: 100%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
 label {
   &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #333333;
-    border-radius: 50%;
-    background: #fff;
+    @include radioButton(18px, 0, #333);
   }
 
   &:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    transition: all 0.2s ease;
+    @include radioButton(12px, 4px);
   }
 }
 
@@ -59,8 +59,9 @@ input[type="radio"]:checked + label:hover:after {
 }
 
 input[type="radio"] {
-    &:checked,
-    &:not(:checked) {
-      position: absolute;
-    }
+  outline: none;
+  &:checked,
+  &:not(:checked) {
+    position: absolute;
+  }
 }

@@ -17,4 +17,32 @@ export class FabricRadioGroupDirective implements AfterContentInit {
     this._radioButtons.forEach(radioButtonComponent => radioButtonComponent.name = this.name);
   }
 
+  private _updateRadioButtons() {
+    if (this._radioButtons) {
+      this._radioButtons.forEach(radioButtonComponent => {
+        const isUpdated = this._updateRadioButton(radioButtonComponent);
+        if (isUpdated) {
+          radioButtonComponent.markForCheck();
+        }
+      });
+    }
+  }
+
+
+  private _updateRadioButton(radioButtonComponent: FabricRadioComponent): boolean {
+    let updated = false;
+    if (radioButtonComponent.name !== this.name) {
+      radioButtonComponent.name = this.name;
+      updated = true;
+    }
+    if (radioButtonComponent.required !== this.required) {
+      radioButtonComponent.required = this.required;
+      updated = true;
+    }
+    if (!radioButtonComponent.disabled && this.disabled) {
+      radioButtonComponent.disabled = this.disabled;
+      updated = true;
+    }
+    return updated;
+  }
 }

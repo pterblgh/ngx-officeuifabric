@@ -1,14 +1,35 @@
-import { Directive, OnInit, QueryList, AfterViewInit, ContentChildren, Input, AfterContentInit, forwardRef } from '@angular/core';
+import { Directive, OnInit, QueryList, AfterViewInit, ContentChildren, Input, AfterContentInit, forwardRef, Optional, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FabricRadioComponent } from './radio.component';
+import { NgModel } from '@angular/forms';
 
 @Directive({
   selector: 'fab-radio-group'
 })
-export class FabricRadioGroupDirective implements AfterContentInit {
+export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
 
   private static _nextId = 0;
+  private _name = `fab-radio-group-${FabricRadioGroupDirective._nextId++}`;
+  private _value: any;
 
-  @Input() name = `fab-radio-group-${FabricRadioGroupDirective._nextId++}`;
+  @Input()
+  get name(): string { return this._name; }
+  set name(value: string) {
+    this._name = value;
+    this._updateRadioButtons();
+  }
+
+  @Input() required = false;
+  @Input() disabled = false;
+
+  @Output() change: EventEmitter<any> = new EventEmitter<any>();
+
+  set value(value: any) {
+    this._value = value;
+    this.change.emit(this._value);
+    if (this.ngModel) {
+      this.ngModel.control.setValue(value);
+    }
+  }
 
   @ContentChildren(forwardRef(() => FabricRadioComponent))
   private readonly _radioButtons: QueryList<FabricRadioComponent>;

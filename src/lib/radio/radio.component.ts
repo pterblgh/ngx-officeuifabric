@@ -24,7 +24,11 @@ export class FabricRadioComponent implements OnInit {
   }
 
   onInputChange(event: Event) {
-    console.log(event);
+    event.stopPropagation();
+
+    if (this._radioGroup) {
+      this._radioGroup.value = this.value;
+    }
   }
 
   onInputClick(event: Event) {

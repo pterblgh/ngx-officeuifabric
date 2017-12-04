@@ -13,6 +13,8 @@ export class FabricRadioGroupDirective implements AfterContentInit {
   @ContentChildren(forwardRef(() => FabricRadioComponent))
   private readonly _radioButtons: QueryList<FabricRadioComponent>;
 
+  constructor(@Optional() private ngModel: NgModel) { }
+
   ngAfterContentInit(): void {
     this._radioButtons.forEach(radioButtonComponent => radioButtonComponent.name = this.name);
   }

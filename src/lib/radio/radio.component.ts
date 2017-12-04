@@ -4,7 +4,8 @@ import { FabricRadioGroupDirective } from './radio-group.directive';
 @Component({
   selector: 'fab-radio',
   templateUrl: './radio.component.html',
-  styleUrls: ['./radio.component.css']
+  styleUrls: ['./radio.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FabricRadioComponent {
 
@@ -17,8 +18,13 @@ export class FabricRadioComponent {
   @Input() disabled = false;
   @Input() id = FabricRadioComponent._nextId++;
 
-  constructor( @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) { }
+  constructor(
+    private _changeDetectorRef: ChangeDetectorRef,
+    @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective
+  ) { }
 
+  markForCheck() {
+    this._changeDetectorRef.markForCheck();
   }
 
   onInputChange(event: Event) {

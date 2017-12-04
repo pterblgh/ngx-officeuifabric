@@ -7,3 +7,4 @@ export * from './rating/rating.module';
 export * from './dropdown/index';
 export * from './persona/public-api';
 export * from './tag/tag.module';
+export * from './radio/radio.module';

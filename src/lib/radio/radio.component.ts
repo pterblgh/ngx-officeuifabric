@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef, Host, Optional, Inject, forwardRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, Host, Optional, Inject, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { FabricRadioGroupDirective } from './radio-group.directive';
 
 @Component({
@@ -6,7 +6,7 @@ import { FabricRadioGroupDirective } from './radio-group.directive';
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.css']
 })
-export class FabricRadioComponent implements OnInit {
+export class FabricRadioComponent {
 
   private static _nextId = 0;
 
@@ -19,8 +19,6 @@ export class FabricRadioComponent implements OnInit {
 
   constructor( @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) { }
 
-  ngOnInit(): void {
-    console.log(`FabricRadioComponent initialized`);
   }
 
   onInputChange(event: Event) {

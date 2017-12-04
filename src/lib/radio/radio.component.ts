@@ -30,8 +30,8 @@ export class FabricRadioComponent {
     }
   }
 
-  onInputClick(event: Event) {
-    console.log(event);
+  onInputClick(event: MouseEvent) {
+    event.stopPropagation();
   }
 
 }

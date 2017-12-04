@@ -16,7 +16,14 @@ export class FabricRadioGroupDirective implements AfterContentInit {
   constructor(@Optional() private ngModel: NgModel) { }
 
   ngAfterContentInit(): void {
-    this._radioButtons.forEach(radioButtonComponent => radioButtonComponent.name = this.name);
+    this._updateRadioButtons();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const isFirstChange = Object.keys(changes).reduce((acc, curr) => (acc && changes[curr].isFirstChange()), true);
+    if (!isFirstChange) {
+      this._updateRadioButtons();
+    }
   }
 
   private _updateRadioButtons() {

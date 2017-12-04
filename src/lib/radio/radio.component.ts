@@ -14,6 +14,7 @@ export class FabricRadioComponent {
   @Input() value: any;
   @Input() name: string;
   @Input() checked = false;
+  @Input() required = false;
   @Input() disabled = false;
   @Input() id = FabricRadioComponent._nextId++;
 

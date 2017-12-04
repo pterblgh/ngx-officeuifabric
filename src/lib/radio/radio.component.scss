@@ -53,3 +53,22 @@ input[type=radio]:checked + label:hover:before {
 input[type=radio]:checked + label:hover:after {
   background: #005A9E;
 }
+
+input[type=radio][disabled] + label {
+  color: #A6A6A6;
+}
+
+input[type=radio][disabled] + label:before,
+input[type=radio][disabled] + label:hover:before,
+input[type=radio][disabled]:checked + label:hover:before {
+  border-color: #C8C8C8;
+}
+
+input[type=radio][disabled]:not(:checked) + label:hover:after {
+  opacity: 0;
+}
+
+input[type=radio][disabled]:checked + label:after {
+  opacity: 1;
+  background: #C8C8C8;
+}

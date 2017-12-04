@@ -14,6 +14,7 @@ export class FabricRadioComponent implements OnInit {
   @Input() value: any;
   @Input() name: string;
   @Input() checked = false;
+  @Input() disabled = false;
   @Input() id = FabricRadioComponent._nextId++;
 
   constructor( @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) { }

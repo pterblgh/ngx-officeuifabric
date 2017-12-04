@@ -10,7 +10,6 @@ export class FabricRadioComponent {
 
   private static _nextId = 0;
 
-  @Input() label: string;
   @Input() value: any;
   @Input() name: string;
   @Input() checked = false;

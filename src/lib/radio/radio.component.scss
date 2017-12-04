@@ -13,7 +13,7 @@
   transition: all 0.2s ease;
 }
 
-input[type="radio"] + label {
+input[type=radio] + label {
   position: relative;
   padding-left: 26px;
   cursor: pointer;
@@ -27,29 +27,29 @@ input[type="radio"] + label {
   }
 }
 
-input[type="radio"] {
+input[type=radio] {
   outline: none;
   position: absolute;
 }
 
-input[type="radio"]:checked + label:before {
+input[type=radio]:checked + label:before {
   border-color: #0078D7;
 }
 
-input[type="radio"]:checked + label:after {
+input[type=radio]:checked + label:after {
   opacity: 1;
   background: #0078D7;
 }
 
-input[type="radio"]:not(:checked) + label:hover:after {
+input[type=radio]:not([disabled]):not(:checked) + label:hover:after {
   opacity: 1;
   background: #A6A6A6;
 }
 
-input[type="radio"]:checked + label:hover:before,{
+input[type=radio]:checked + label:hover:before {
   border-color: #005A9E;
 }
 
-input[type="radio"]:checked + label:hover:after {
+input[type=radio]:checked + label:hover:after {
   background: #005A9E;
 }

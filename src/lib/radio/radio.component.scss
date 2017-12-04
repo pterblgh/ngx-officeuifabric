@@ -8,7 +8,7 @@
   @if $borderColor != none {
     border: 1px solid $borderColor;
   }
-  border-radius: 100%;
+  border-radius: 50%;
   background: #fff;
   transition: all 0.2s ease;
 }

@@ -10,7 +10,7 @@ import { CalloutConfig } from './callout-config.interface';
 @Directive({
     selector: '[fab-callout], [fabCallout]'
 })
-export class FabricCalloutDirective implements OnDestroy {
+export class FabricCalloutDirective implements OnInit, OnDestroy {
 
     private static _defaultConfig: CalloutConfig = {
         title: '',
@@ -36,6 +36,10 @@ export class FabricCalloutDirective implements OnDestroy {
         private _element: ElementRef,
         private _overlay: Overlay
     ) { }
+
+    ngOnInit(): void {
+        this.calloutConfig = { ...FabricCalloutDirective._defaultConfig, ...this.calloutConfig };
+    }
 
     ngOnDestroy(): void {
         this._overlayRef.dispose();

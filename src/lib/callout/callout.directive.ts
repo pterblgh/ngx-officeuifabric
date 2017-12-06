@@ -43,7 +43,10 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this._overlayRef.dispose();
-        this._subscription.unsubscribe();
+
+        if (this._subscription) {
+            this._subscription.unsubscribe();
+        }
     }
 
     @HostListener('click')
@@ -52,8 +55,10 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
             const config = this._createConfig(this._config);
             if (!this._overlayRef) {
                 this._overlayRef = this._overlay.create(config);
-                this._backdropClicked$ = this._overlayRef.backdropClick();
-                this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.detach());
+                if (this._config.canDismiss) {
+                    this._backdropClicked$ = this._overlayRef.backdropClick();
+                    this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.detach());
+                }
             }
             const injector = this._createInjector(this._config);
             const portal = new ComponentPortal(FabricCalloutComponent, null, injector);

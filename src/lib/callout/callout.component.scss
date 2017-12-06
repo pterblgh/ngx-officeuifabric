@@ -34,6 +34,16 @@
         z-index: 1;
     }
 
+    span.close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+        background: red;
+    }
+
     h1,
     p {
         font-weight: 300;

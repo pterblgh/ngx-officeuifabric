@@ -1,0 +1,61 @@
+.callout-container {
+    max-width: 290px;
+    margin-left: 15px;
+    box-sizing: border-box;
+    padding: 16px 34px;
+    background: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+    position: relative;
+    margin-top: -10px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid white;
+        z-index: 2;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 8px;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid rgba(0, 0, 0, 0.055);
+        z-index: 1;
+    }
+
+    span.close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+        background: red;
+    }
+
+    h1,
+    p {
+        font-weight: 300;
+    }
+
+    h1 {
+        margin: 0 0 11px;
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+}

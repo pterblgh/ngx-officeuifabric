@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { FAB_CALLOUT_CONFIG } from './callout.tokens';
+import { CalloutConfig } from './callout-config.interface';
 
 @Component({
     selector: 'fab-callout',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FabricCalloutComponent implements OnInit {
 
+    title: string;
+    content: string;
+
+    constructor(@Inject(FAB_CALLOUT_CONFIG) private _config: CalloutConfig) {}
+
     ngOnInit(): void {
-        console.log(`FabricCalloutComponent initialized`);
+        if (this._config) {
+            this.title = this._config.title;
+            this.content = this._config.content;
+        }
     }
 
 }

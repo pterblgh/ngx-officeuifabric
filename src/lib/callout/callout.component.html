@@ -1,5 +1,4 @@
 <div class="callout-container">
-    <h1 class="title">Title</h1>
-    <p>Message body is optional. If help documentation is available, consider adding a link to learn more at the bottom.</p>
-    <a href="">Learn more</a>
+    <h1 class="title" *ngIf="title">{{ title || 'Title' }}</h1>
+    <p *ngIf="content">{{ content }}</p>
 </div>

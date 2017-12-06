@@ -8,4 +8,4 @@ export * from './dropdown/index';
 export * from './persona/public-api';
 export * from './tag/tag.module';
 export * from './radio/radio.module';
-export * from './callout/callout.module';
+export * from './callout/index';

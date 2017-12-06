@@ -71,6 +71,7 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
     private _createInjector(config: CalloutConfig): PortalInjector {
         const injectionTokens = new WeakMap();
 
+        injectionTokens.set(OverlayRef, this._overlayRef);
         injectionTokens.set(FAB_CALLOUT_CONFIG, config);
 
         return new PortalInjector(this._injector, injectionTokens);

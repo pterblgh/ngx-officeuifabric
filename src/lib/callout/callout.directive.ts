@@ -12,6 +12,12 @@ import { CalloutConfig } from './callout-config.interface';
 })
 export class FabricCalloutDirective implements OnDestroy {
 
+    private static _defaultConfig: CalloutConfig = {
+        title: '',
+        content: '',
+        canDismiss: true
+    };
+
     private _overlayRef: OverlayRef;
     private _backdropClicked$: Observable<void>;
     private _subscription: Subscription;

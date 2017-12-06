@@ -39,14 +39,7 @@ export class FabricCalloutDirective implements OnDestroy {
     @HostListener('click')
     private _openOverlay() {
         if (this._config) {
-            const originPos: OriginConnectionPosition = { originX: 'end', originY: 'top' };
-            const overlayPos: OverlayConnectionPosition = { overlayX: 'start', overlayY: 'top' };
-            const config = new OverlayConfig({
-                positionStrategy: this._overlay.position().connectedTo(this._element, originPos, overlayPos),
-                backdropClass: 'fab-callout-overlay-backdrop',
-                hasBackdrop: true,
-                maxWidth: 300
-            });
+            const config = this._createConfig(this._config);
             if (!this._overlayRef) {
                 this._overlayRef = this._overlay.create(config);
                 this._backdropClicked$ = this._overlayRef.backdropClick();
@@ -68,4 +61,22 @@ export class FabricCalloutDirective implements OnDestroy {
         return new PortalInjector(this._injector, injectionTokens);
     }
 
+    private _createConfig(config: CalloutConfig): OverlayConfig {
+        const originPos: OriginConnectionPosition = { originX: 'end', originY: 'top' };
+        const overlayPos: OverlayConnectionPosition = { overlayX: 'start', overlayY: 'top' };
+
+        const overlayConfig: OverlayConfig = {
+            positionStrategy: this._overlay.position().connectedTo(this._element, originPos, overlayPos),
+            backdropClass: 'fab-callout-overlay-backdrop',
+            hasBackdrop: true,
+            maxWidth: 300
+        }
+
+        if (!config.canDismiss) {
+            delete overlayConfig.backdropClass;
+            delete overlayConfig.hasBackdrop;
+        }
+
+        return new OverlayConfig(overlayConfig);
+    }
 }

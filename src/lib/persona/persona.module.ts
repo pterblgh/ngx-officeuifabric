@@ -20,4 +20,5 @@ import { FabricPersonaService } from './persona.service';
     FabricPersonaService,
   ],
 })
-export class FabricPersonaModule { }
+export class FabricPersonaModule {
+}

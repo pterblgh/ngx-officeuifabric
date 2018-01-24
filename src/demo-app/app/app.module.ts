@@ -33,4 +33,5 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

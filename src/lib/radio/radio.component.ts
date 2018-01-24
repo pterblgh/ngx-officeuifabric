@@ -1,4 +1,13 @@
-import { Component, Input, ChangeDetectorRef, Host, Optional, Inject, forwardRef, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectorRef,
+  Host,
+  Optional,
+  Inject,
+  forwardRef,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FabricRadioGroupDirective } from './radio-group.directive';
 
 @Component({
@@ -18,10 +27,9 @@ export class FabricRadioComponent {
   @Input() disabled = false;
   @Input() id = FabricRadioComponent._nextId++;
 
-  constructor(
-    private _changeDetectorRef: ChangeDetectorRef,
-    @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective,
-  ) { }
+  constructor(private _changeDetectorRef: ChangeDetectorRef,
+              @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) {
+  }
 
   markForCheck() {
     this._changeDetectorRef.markForCheck();

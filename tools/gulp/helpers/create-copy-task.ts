@@ -1,8 +1,8 @@
-import { task, src, dest} from 'gulp';
+import { task, src, dest } from 'gulp';
 
 export interface SrcConfig {
-    path: string;
-    base?: string;
+  path: string;
+  base?: string;
 }
 
 /**
@@ -15,10 +15,10 @@ export interface SrcConfig {
  * @param outPath
  */
 export function createCopyTask(taskName: string, files: string[], srcConfig: SrcConfig, outPath: string): string {
-    taskName = `copy:${taskName}`;
-    task(taskName, () => {
-        return src(files.map(file => `${srcConfig.path}/${file}`), srcConfig.base ? { base: srcConfig.base } : undefined)
-            .pipe(dest(outPath));
-    });
-    return taskName;
+  taskName = `copy:${taskName}`;
+  task(taskName, () => {
+    return src(files.map(file => `${srcConfig.path}/${file}`), srcConfig.base ? {base: srcConfig.base} : undefined)
+      .pipe(dest(outPath));
+  });
+  return taskName;
 }

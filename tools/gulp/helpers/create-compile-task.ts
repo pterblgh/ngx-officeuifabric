@@ -11,11 +11,11 @@ import * as typescript from 'gulp-typescript';
  * @param compilerOptions
  */
 export function createCompileTask(taskName: string, path: string, outPath: string, compilerOptions: CompilerOptions): string {
-    taskName = `compile:${taskName}`;
-    task(taskName, () => {
-        return src(`${path}/**/*.ts`)
-            .pipe(typescript(compilerOptions))
-            .pipe(dest(outPath));
-    });
-    return taskName;
+  taskName = `compile:${taskName}`;
+  task(taskName, () => {
+    return src(`${path}/**/*.ts`)
+      .pipe(typescript(compilerOptions))
+      .pipe(dest(outPath));
+  });
+  return taskName;
 }

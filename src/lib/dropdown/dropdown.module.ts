@@ -4,15 +4,16 @@ import { FabricDropdownComponent } from './dropdown.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        OverlayModule,
-    ],
-    declarations: [
-        FabricDropdownComponent,
-    ],
-    exports: [
-        FabricDropdownComponent,
-    ],
+  imports: [
+    CommonModule,
+    OverlayModule,
+  ],
+  declarations: [
+    FabricDropdownComponent,
+  ],
+  exports: [
+    FabricDropdownComponent,
+  ],
 })
-export class FabricDropdownModule { }
+export class FabricDropdownModule {
+}

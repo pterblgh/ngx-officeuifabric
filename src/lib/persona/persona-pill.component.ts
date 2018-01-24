@@ -24,7 +24,8 @@ export class FabricPersonaPillComponent implements OnInit {
 
   PersonaPresence = PersonaPresence;
 
-  constructor(private readonly personaService: FabricPersonaService) { }
+  constructor(private readonly personaService: FabricPersonaService) {
+  }
 
   ngOnInit(): void {
     if (this.primaryText) {

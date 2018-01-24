@@ -19,4 +19,5 @@ import { FabricCalloutDirective } from './callout.directive';
     FabricCalloutComponent,
   ],
 })
-export class FabricCalloutModule { }
+export class FabricCalloutModule {
+}

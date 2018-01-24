@@ -3,19 +3,19 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class InputTrackerService {
 
-    private index: number;
+  private index: number;
 
-    constructor() {
-        this.index = -1;
-    }
+  constructor() {
+    this.index = -1;
+  }
 
-    getIndex(): number {
-        this.index++;
-        return this.index;
-    }
+  getIndex(): number {
+    this.index++;
+    return this.index;
+  }
 
-    removeIndex() {
-        this.index--;
-    }
+  removeIndex() {
+    this.index--;
+  }
 
 }

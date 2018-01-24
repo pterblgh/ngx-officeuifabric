@@ -6,21 +6,22 @@ import { FabricInputDirective } from './input.directive';
 import { FormElementService } from './form-element.service';
 
 @NgModule({
-    imports: [
-        CommonModule,
-    ],
-    declarations: [
-        FabricFormElementComponent,
-        FabricLabelDirective,
-        FabricInputDirective,
-    ],
-    exports: [
-        FabricFormElementComponent,
-        FabricLabelDirective,
-        FabricInputDirective,
-    ],
-    providers: [
-        FormElementService,
-    ],
+  imports: [
+    CommonModule,
+  ],
+  declarations: [
+    FabricFormElementComponent,
+    FabricLabelDirective,
+    FabricInputDirective,
+  ],
+  exports: [
+    FabricFormElementComponent,
+    FabricLabelDirective,
+    FabricInputDirective,
+  ],
+  providers: [
+    FormElementService,
+  ],
 })
-export class FabricFormElementModule { }
+export class FabricFormElementModule {
+}

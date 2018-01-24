@@ -13,4 +13,5 @@ import { FabricTagComponent } from './tag.component';
     FabricTagComponent,
   ],
 })
-export class FabricTagModule { }
+export class FabricTagModule {
+}

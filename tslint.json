@@ -1,0 +1,80 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "eofline": false,
+        "indent": [
+            true,
+            "spaces",
+            2
+        ],
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "member-access": [
+            false
+        ],
+        "ordered-imports": [
+            false
+        ],
+        "max-line-length": [
+            true,
+            150
+        ],
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "private-static-field",
+                    "private-instance-field",
+                    "public-static-field",
+                    "public-instance-field",
+                    "public-constructor",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ],
+        "curly": true,
+        "interface-name": [
+            false
+        ],
+        "array-type": [
+            true,
+            "array"
+        ],
+        "no-unused-variable": [
+            true,
+            {
+                "ignore-pattern": "^_"
+            }
+        ],
+        "no-floating-promises": true,
+        "no-var-requires": false,
+        "prefer-object-spread": true,
+        "arrow-parens": false,
+        "object-literal-sort-keys": false,
+        "max-classes-per-file": [
+            true,
+            1
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore"
+        ],
+        "one-line": [
+            true,
+            "check-catch",
+            "check-finally",
+            "check-else"
+        ],
+        "one-variable-per-declaration": true
+    },
+    "rulesDirectory": []
+}

@@ -4,9 +4,11 @@ import { InputTrackerService } from './input-tracker.service';
 @Component({
     selector: 'fabric-textfield',
     templateUrl: './textfield.component.html',
-    styleUrls: [ './textfield.component.css' ]
+    styleUrls: [ './textfield.component.css' ],
 })
 export class FabricTextfieldComponent implements OnInit, OnDestroy {
+
+    private _textInputId: number;
 
     @Input() label: string;
     @Input() placeholder: string = '';
@@ -14,8 +16,6 @@ export class FabricTextfieldComponent implements OnInit, OnDestroy {
     @Input() errorMessage: string = '';
     @Input() underlined: boolean = false;
     @Input() value: string;
-
-    private _textInputId: number;
 
     constructor(private inputTrackerService: InputTrackerService) { }
 
@@ -27,9 +27,7 @@ export class FabricTextfieldComponent implements OnInit, OnDestroy {
         return `TextInput${this._textInputId}`;
     }
 
-    onChange(e: any) {
-        console.log(e);
-    }
+    onChange(_e: any) { /** */ }
 
     ngOnDestroy() {
         this.inputTrackerService.removeIndex();

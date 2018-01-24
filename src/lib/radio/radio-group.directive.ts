@@ -1,15 +1,21 @@
-import { Directive, OnInit, QueryList, AfterViewInit, ContentChildren, Input, AfterContentInit, forwardRef, Optional, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, QueryList, ContentChildren, Input,
+  AfterContentInit, forwardRef, Optional, Output,
+  EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FabricRadioComponent } from './radio.component';
 import { NgModel } from '@angular/forms';
 
 @Directive({
-  selector: 'fab-radio-group'
+  selector: 'fab-radio-group',
 })
 export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
 
   private static _nextId = 0;
+
   private _name = `fab-radio-group-${FabricRadioGroupDirective._nextId++}`;
   private _value: any;
+
+  @ContentChildren(forwardRef(() => FabricRadioComponent))
+  private readonly _radioButtons: QueryList<FabricRadioComponent>;
 
   @Input()
   get name(): string { return this._name; }
@@ -30,9 +36,6 @@ export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
       this.ngModel.control.setValue(value);
     }
   }
-
-  @ContentChildren(forwardRef(() => FabricRadioComponent))
-  private readonly _radioButtons: QueryList<FabricRadioComponent>;
 
   constructor(@Optional() private ngModel: NgModel) { }
 
@@ -57,7 +60,6 @@ export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
       });
     }
   }
-
 
   private _updateRadioButton(radioButtonComponent: FabricRadioComponent): boolean {
     let updated = false;

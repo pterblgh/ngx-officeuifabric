@@ -10,17 +10,17 @@ import { CdkOverlayOrigin } from '@angular/cdk/overlay';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
   host: {
-    '[class.disabled]': 'disabled'
+    '[class.disabled]': 'disabled',
   },
   animations: [
     trigger('actionEditor', [
       state('true', style({ transform: 'translate3d(0px, 0px, 0px)' })),
       transition(':enter', [
         style({ transform: 'translate3d(0px, -10px, 0px)' }),
-        animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)')
-      ])
-    ])
-  ]
+        animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)'),
+      ]),
+    ]),
+  ],
 })
 export class FabricDropdownComponent implements OnInit {
 
@@ -75,8 +75,7 @@ export class FabricDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.defaultSelectedKey) {
-      const item = this.items.find(item => item.key === this.defaultSelectedKey);
-      this.currentSelectedItem = item || null;
+      this.currentSelectedItem = this.items.find(item => item.key === this.defaultSelectedKey) || null;
     }
   }
 

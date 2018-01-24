@@ -1,10 +1,10 @@
-import { Directive, ElementRef, OnInit } from "@angular/core";
+import { Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
     selector: 'label[fabLabel], label[fab-label]',
     host: {
-        '[class.required]': '_required'
-    }
+        '[class.required]': '_required',
+    },
 })
 export class FabricLabelDirective implements OnInit {
 

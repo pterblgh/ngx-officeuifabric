@@ -22,7 +22,7 @@ export function createSassTask(taskName: string, path: string, outPath: string, 
         return src(path)
         .pipe(gulpSass(includePaths ? { includePaths } : undefined).on('error', gulpSass.logError))
         .pipe(postcss([ autoprefixer() ]))
-        .pipe(dest(outPath))
+        .pipe(dest(outPath));
     });
     return taskName;
 }

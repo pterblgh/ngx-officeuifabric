@@ -5,5 +5,5 @@ export enum PersonaPresence {
   Away = 'away',
   Dnd = 'dnd',
   Blocked = 'blocked',
-  Busy = 'busy'
+  Busy = 'busy',
 }

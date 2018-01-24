@@ -1,18 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'fab-checkbox',
     templateUrl: './checkbox.component.html',
-    styleUrls: ['./checkbox.component.css']
+    styleUrls: ['./checkbox.component.css'],
 })
-export class FabricCheckboxComponent implements OnInit {
+export class FabricCheckboxComponent {
 
     @Input() isSelected: boolean = false;
     @Input() disabled: boolean = false;
-
-    ngOnInit(): void {
-        console.log('checkbox component successfully created');
-    }
 
     toggleCheckbox(): void {
         if (!this.disabled) {

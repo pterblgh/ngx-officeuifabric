@@ -6,13 +6,13 @@ import { OverlayModule } from '@angular/cdk/overlay';
 @NgModule({
     imports: [
         CommonModule,
-        OverlayModule
+        OverlayModule,
     ],
     declarations: [
-        FabricDropdownComponent
+        FabricDropdownComponent,
     ],
     exports: [
-        FabricDropdownComponent
-    ]
+        FabricDropdownComponent,
+    ],
 })
 export class FabricDropdownModule { }

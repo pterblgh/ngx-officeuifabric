@@ -1,16 +1,19 @@
-import { Component, OnInit, Input, Self, Optional, OnDestroy } from "@angular/core";
-import { NgModel } from "@angular/forms";
-import { Subscription } from "rxjs/Subscription";
+import { Component, OnInit, Input, Self, Optional, OnDestroy } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'fab-rating',
     styleUrls: ['./rating.component.css'],
     templateUrl: './rating.component.html',
     host: {
-        '[class.disabled]': 'disabled'
-    }
+        '[class.disabled]': 'disabled',
+    },
 })
 export class FabricRatingComponent implements OnInit, OnDestroy {
+
+    private _currentIndex: number;
+    private _subscriptions: Subscription[];
 
     @Input() min: number;
     @Input() max: number;
@@ -18,11 +21,8 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
 
     starStates: string[];
 
-    private _currentIndex: number;
-    private _subscriptions: Subscription[];
-
     constructor(
-        @Self() @Optional() public ngControl: NgModel
+        @Self() @Optional() public ngControl: NgModel,
     ) {
         this.min = 1;
         this.disabled = false;
@@ -39,7 +39,7 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
                         value = value > this.max ? this.max : value < this.min ? this.min : value;
                         this._currentIndex = value - this.min;
                         this.onHover(this._currentIndex, true);
-                    })
+                    }),
             );
         } else {
             this._currentIndex = 0;
@@ -49,10 +49,10 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
     onHover(hoverIndex: number, force: boolean = false) {
         if (!this.disabled || force) {
             /** If the mouse points to the same place as before do not recalculate the array */
-            if (this.starStates.indexOf('current') === hoverIndex) return;
+            if (this.starStates.indexOf('current') === hoverIndex) { return; }
 
             this.starStates = this.starStates.map((_value: string, index: number) => {
-                if (hoverIndex === index) return 'current';
+                if (hoverIndex === index) { return 'current'; }
                 return index > hoverIndex ? 'inactive' : 'active';
             });
         }

@@ -4,11 +4,11 @@ import { DropdownItem, DropdownItemType, PersonaSize, PersonaPillSize, PersonaPr
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
 
-  private presenceArray = [
+  presenceArray = [
     PersonaPresence.None,
     PersonaPresence.Offline,
     PersonaPresence.Online,
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
               in reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.`
+              sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   };
 
   inputField: string;
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     position: 'Software Engineer',
     status: 'In a meeting',
     imageUrl: 'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-react-assets/persona-female.png',
-    presence: this.presenceArray[Math.floor(Math.random() * this.presenceArray.length)]
+    presence: this.presenceArray[Math.floor(Math.random() * this.presenceArray.length)],
   };
 
   ngOnInit(): void {

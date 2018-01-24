@@ -5,9 +5,9 @@ import { NgModel } from '@angular/forms';
     selector: 'input[fabInput], input[fab-input], textarea[fabInput], textarea[fab-input]',
     host: {
         'class': 'fab-input',
-        '[class.error]': 'invalid'
+        '[class.error]': 'invalid',
     },
-    providers: [NgModel]
+    providers: [NgModel],
 })
 export class FabricInputDirective implements OnInit {
 
@@ -15,7 +15,7 @@ export class FabricInputDirective implements OnInit {
 
     constructor(
         private _control: NgModel,
-        private _elemRef: ElementRef
+        private _elemRef: ElementRef,
     ) { }
 
     ngOnInit() {

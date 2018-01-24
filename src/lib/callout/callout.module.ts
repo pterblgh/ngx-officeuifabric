@@ -5,18 +5,18 @@ import { FabricCalloutDirective } from './callout.directive';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     FabricCalloutComponent,
-    FabricCalloutDirective
+    FabricCalloutDirective,
   ],
   exports: [
     FabricCalloutComponent,
-    FabricCalloutDirective
+    FabricCalloutDirective,
   ],
   entryComponents: [
-    FabricCalloutComponent
-  ]
+    FabricCalloutComponent,
+  ],
 })
 export class FabricCalloutModule { }

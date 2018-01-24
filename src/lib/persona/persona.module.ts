@@ -6,18 +6,18 @@ import { FabricPersonaService } from './persona.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     FabricPersonaComponent,
-    FabricPersonaPillComponent
+    FabricPersonaPillComponent,
   ],
   exports: [
     FabricPersonaComponent,
-    FabricPersonaPillComponent
+    FabricPersonaPillComponent,
   ],
   providers: [
-    FabricPersonaService
-  ]
+    FabricPersonaService,
+  ],
 })
 export class FabricPersonaModule { }

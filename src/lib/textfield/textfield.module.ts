@@ -7,16 +7,16 @@ import { InputTrackerService } from './input-tracker.service';
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
     ],
     declarations: [
-        FabricTextfieldComponent
+        FabricTextfieldComponent,
     ],
     exports: [
-        FabricTextfieldComponent
+        FabricTextfieldComponent,
     ],
     providers: [
-        InputTrackerService
-    ]
+        InputTrackerService,
+    ],
 })
 export class FabricTextfieldModule { }

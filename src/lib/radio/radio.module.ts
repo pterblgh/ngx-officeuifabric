@@ -5,15 +5,15 @@ import { FabricRadioGroupDirective } from './radio-group.directive';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     FabricRadioComponent,
-    FabricRadioGroupDirective
+    FabricRadioGroupDirective,
   ],
   exports: [
     FabricRadioComponent,
-    FabricRadioGroupDirective
-  ]
+    FabricRadioGroupDirective,
+  ],
 })
 export class FabricRadioModule { }

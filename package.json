@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp development",
     "lint": "tslint -p tsconfig.json --fix",
+    "lint:ci": "tslint -p tsconfig.json",
     "gulp": "gulp"
   },
   "repository": {

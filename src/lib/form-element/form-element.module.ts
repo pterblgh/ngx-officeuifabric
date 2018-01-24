@@ -7,20 +7,20 @@ import { FormElementService } from './form-element.service';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
     ],
     declarations: [
         FabricFormElementComponent,
         FabricLabelDirective,
-        FabricInputDirective
+        FabricInputDirective,
     ],
     exports: [
         FabricFormElementComponent,
         FabricLabelDirective,
-        FabricInputDirective
+        FabricInputDirective,
     ],
     providers: [
-        FormElementService
-    ]
+        FormElementService,
+    ],
 })
 export class FabricFormElementModule { }

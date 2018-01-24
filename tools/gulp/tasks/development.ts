@@ -16,7 +16,7 @@ const vendor = [
     'node_modules/systemjs/dist/system.src.js',
     'node_modules/@angular/**/*.js',
     'node_modules/rxjs/**/*.js',
-    'node_modules/office-ui-fabric-core/dist/css/fabric.css'
+    'node_modules/office-ui-fabric-core/dist/css/fabric.css',
 ];
 
 task('connect', () => {
@@ -33,18 +33,18 @@ const watchers = [
     {
         name: 'demo-app:ts',
         path: `${demoAppPath}/**/*.ts`,
-        tasks: [compileTask]
+        tasks: [compileTask],
     },
     {
         name: 'demo-app:sass',
         path: `${demoAppPath}/**/*.scss`,
-        tasks: [sassTask]
+        tasks: [sassTask],
     },
     {
         name: 'demo-app:html',
         path: `${demoAppPath}/**/*.html`,
-        tasks: [copyAssetsTask]
-    }
+        tasks: [copyAssetsTask],
+    },
 ];
 
 const watchTasks = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));
@@ -57,7 +57,7 @@ task('build', runSequence(
     copyAssetsTask,
     compileTask,
     sassTask,
-    'build:lib'
+    'build:lib',
 ));
 
 task('development', runSequence(
@@ -65,5 +65,5 @@ task('development', runSequence(
     'build:lib',
     'connect',
     'watch:demo-app',
-    'watch:lib'
+    'watch:lib',
 ));

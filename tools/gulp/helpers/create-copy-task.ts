@@ -6,13 +6,13 @@ export interface SrcConfig {
 }
 
 /**
- * Creates a task which copy a single file or multiple files given by 
+ * Creates a task which copy a single file or multiple files given by
  * their exact name or with globs. Do not provide the full path to the
  * files, use the srcConfig variable instead.
- * @param taskName 
- * @param files 
- * @param srcConfig 
- * @param outPath 
+ * @param taskName
+ * @param files
+ * @param srcConfig
+ * @param outPath
  */
 export function createCopyTask(taskName: string, files: string[], srcConfig: SrcConfig, outPath: string): string {
     taskName = `copy:${taskName}`;

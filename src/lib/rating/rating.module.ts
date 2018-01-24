@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FabricRatingComponent } from "./rating.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FabricRatingComponent } from './rating.component';
 
 @NgModule({
     imports: [CommonModule],
     declarations: [
-        FabricRatingComponent
+        FabricRatingComponent,
     ],
     exports: [
-        FabricRatingComponent
-    ]
+        FabricRatingComponent,
+    ],
 })
 export class FabricRatingModule { }

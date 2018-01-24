@@ -4,13 +4,13 @@ import { FabricTagComponent } from './tag.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
-    FabricTagComponent
+    FabricTagComponent,
   ],
   exports: [
-    FabricTagComponent
-  ]
+    FabricTagComponent,
+  ],
 })
 export class FabricTagModule { }

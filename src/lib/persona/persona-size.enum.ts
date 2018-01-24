@@ -5,5 +5,5 @@ export enum PersonaSize {
   Size40 = 'size40',
   Size56 = 'size56',
   Size72 = 'size72',
-  Size100 = 'size100'
+  Size100 = 'size100',
 }

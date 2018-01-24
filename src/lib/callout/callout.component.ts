@@ -1,8 +1,8 @@
-import { Component, Input, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FAB_CALLOUT_CONFIG } from './callout.tokens';
 import { CalloutConfig } from './callout-config.interface';
 import { OverlayRef } from '@angular/cdk/overlay';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
     selector: 'fab-callout',
@@ -12,10 +12,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         trigger('callout', [
             transition(':enter', [
                 style({ transform: 'translate3d(-10px, 0, 0)' }),
-                animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)')
-            ])
-        ])
-    ]
+                animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)'),
+            ]),
+        ]),
+    ],
 })
 export class FabricCalloutComponent {
 
@@ -25,7 +25,7 @@ export class FabricCalloutComponent {
 
     constructor(
         private _overlayRef: OverlayRef,
-        @Inject(FAB_CALLOUT_CONFIG) private _config: CalloutConfig
+        @Inject(FAB_CALLOUT_CONFIG) private _config: CalloutConfig,
     ) { }
 
     onCloseClick() {

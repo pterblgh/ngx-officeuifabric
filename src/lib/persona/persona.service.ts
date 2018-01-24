@@ -18,7 +18,7 @@ export class FabricPersonaService {
     PersonaInitialsColor.Black,
     PersonaInitialsColor.Orange,
     PersonaInitialsColor.Red,
-    PersonaInitialsColor.DarkRed
+    PersonaInitialsColor.DarkRed,
   ];
 
   calculateInitials(primaryText: string): CalculatedInitials {
@@ -43,7 +43,7 @@ export class FabricPersonaService {
 
     return {
       imageInitials,
-      initialsColor
+      initialsColor,
     };
   }
 

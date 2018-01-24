@@ -9,8 +9,8 @@ import { FabricPersonaService } from './persona.service';
   templateUrl: './persona-pill.component.html',
   styleUrls: ['./persona-pill.component.css'],
   host: {
-    '[class]': 'size'
-  }
+    '[class]': 'size',
+  },
 })
 export class FabricPersonaPillComponent implements OnInit {
 

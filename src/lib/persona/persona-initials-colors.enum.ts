@@ -11,5 +11,5 @@ export enum PersonaInitialsColor {
   Black = 'black',
   Orange = 'orange',
   Red = 'red',
-  DarkRed = 'darkred'
+  DarkRed = 'darkred',
 }

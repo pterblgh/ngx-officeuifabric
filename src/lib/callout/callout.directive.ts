@@ -1,6 +1,6 @@
 import { Directive, OnInit, HostListener, ElementRef, OnDestroy, Injector, Input } from '@angular/core';
 import { Overlay, OverlayRef, OverlayConfig, OriginConnectionPosition, OverlayConnectionPosition } from '@angular/cdk/overlay';
-import { Portal, ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { FabricCalloutComponent } from './callout.component';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -8,14 +8,14 @@ import { FAB_CALLOUT_CONFIG } from './callout.tokens';
 import { CalloutConfig } from './callout-config.interface';
 
 @Directive({
-    selector: '[fab-callout], [fabCallout]'
+    selector: '[fab-callout], [fabCallout]',
 })
 export class FabricCalloutDirective implements OnInit, OnDestroy {
 
     private static _defaultConfig: CalloutConfig = {
         title: '',
         content: '',
-        canDismiss: true
+        canDismiss: true,
     };
 
     private _overlayRef: OverlayRef;
@@ -34,7 +34,7 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
     constructor(
         private _injector: Injector,
         private _element: ElementRef,
-        private _overlay: Overlay
+        private _overlay: Overlay,
     ) { }
 
     ngOnInit(): void {
@@ -63,8 +63,6 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
             const injector = this._createInjector(this._config);
             const portal = new ComponentPortal(FabricCalloutComponent, null, injector);
             this._overlayRef.attach(portal);
-        } else {
-            console.warn(`No config object provided for FabricCalloutDirective`);
         }
     }
 
@@ -85,8 +83,8 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
             positionStrategy: this._overlay.position().connectedTo(this._element, originPos, overlayPos),
             backdropClass: 'fab-callout-overlay-backdrop',
             hasBackdrop: true,
-            maxWidth: 300
-        }
+            maxWidth: 300,
+        };
 
         if (!config.canDismiss) {
             delete overlayConfig.backdropClass;

@@ -15,7 +15,7 @@ const LIB_OUT_PATH = 'dist/demo-app/lib';
  */
 const sassIncludePaths = [
     'node_modules/office-ui-fabric-core/src/sass/variables',
-    `${libPath}/common/styles`
+    `${libPath}/common/styles`,
 ];
 
 const compileTask = createCompileTask('ngx-fabric:ts', libPath, LIB_OUT_PATH, tsConfigPath.compilerOptions);
@@ -26,18 +26,18 @@ const watchers = [
     {
         name: 'lib:ts',
         path: `${libPath}/**/*.ts`,
-        tasks: [compileTask]
+        tasks: [compileTask],
     },
     {
         name: 'lib:sass',
         path: `${libPath}/**/*.scss`,
-        tasks: [sassTask]
+        tasks: [sassTask],
     },
     {
         name: 'lib:html',
         path: `${libPath}/**/*.html`,
-        tasks: [copyTask]
-    }
+        tasks: [copyTask],
+    },
 ];
 
 const watchTask = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));

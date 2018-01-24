@@ -8,16 +8,16 @@ import { FormElementService } from './form-element.service';
     templateUrl: './form-element.component.html',
     styleUrls: ['./form-element.component.css'],
     host: {
-        'class': 'fab-form-container'
+        class: 'fab-form-container',
     },
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FabricFormElementComponent implements AfterContentInit {
 
-    constructor(private _formElementService: FormElementService) { }
-
     @ContentChild(FabricLabelDirective) private _labelElement: FabricLabelDirective;
     @ContentChild(FabricInputDirective) private _inputElement: FabricInputDirective;
+
+    constructor(private _formElementService: FormElementService) { }
 
     ngAfterContentInit() {
         this._labelElement.required = this._inputElement.required;

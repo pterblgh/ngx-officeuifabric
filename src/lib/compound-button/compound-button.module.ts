@@ -4,13 +4,13 @@ import { FabricCompoundButtonComponent } from './compound-button.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
     ],
     declarations: [
-        FabricCompoundButtonComponent
+        FabricCompoundButtonComponent,
     ],
     exports: [
-        FabricCompoundButtonComponent
-    ]
+        FabricCompoundButtonComponent,
+    ],
 })
 export class FabricCompoundButtonModule { }

@@ -15,7 +15,7 @@ export interface BuildConfig {
 const buildConfigPath = findBuildConfig();
 
 if (!buildConfigPath) {
-  throw `"build-config.js" file could not be found in the project`;
+  throw new Error(`"build-config.js" file could not be found in the project`);
 }
 
 // Load the config file using a basic CommonJS import.

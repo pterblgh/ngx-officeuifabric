@@ -14,9 +14,9 @@ import { CdkOverlayOrigin } from '@angular/cdk/overlay';
   },
   animations: [
     trigger('actionEditor', [
-      state('true', style({ transform: 'translate3d(0px, 0px, 0px)' })),
+      state('true', style({transform: 'translate3d(0px, 0px, 0px)'})),
       transition(':enter', [
-        style({ transform: 'translate3d(0px, -10px, 0px)' }),
+        style({transform: 'translate3d(0px, -10px, 0px)'}),
         animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)'),
       ]),
     ]),
@@ -38,19 +38,28 @@ export class FabricDropdownComponent implements OnInit {
   @Input() defaultSelectedKey: string;
 
   @Input()
-  get placeholder(): string { return this._placeholder; }
+  get placeholder(): string {
+    return this._placeholder;
+  }
+
   set placeholder(value: string) {
     this._placeholder = value;
   }
 
   @Output() itemSelected: EventEmitter<DropdownItem>;
 
-  get isItemContainerVisible() { return this._isItemContainerVisible; }
+  get isItemContainerVisible() {
+    return this._isItemContainerVisible;
+  }
+
   set isItemContainerVisible(value: boolean) {
     this._isItemContainerVisible = value;
   }
 
-  get currentSelectedItem() { return this._currentSelectedItem; }
+  get currentSelectedItem() {
+    return this._currentSelectedItem;
+  }
+
   set currentSelectedItem(item: DropdownItem | null) {
     if (item) {
       this._currentSelectedItem = item;

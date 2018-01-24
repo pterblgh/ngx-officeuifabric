@@ -16,4 +16,5 @@ import { FabricRadioGroupDirective } from './radio-group.directive';
     FabricRadioGroupDirective,
   ],
 })
-export class FabricRadioModule { }
+export class FabricRadioModule {
+}

@@ -5,18 +5,19 @@ import { FabricTextfieldComponent } from './textfield.component';
 import { InputTrackerService } from './input-tracker.service';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-    ],
-    declarations: [
-        FabricTextfieldComponent,
-    ],
-    exports: [
-        FabricTextfieldComponent,
-    ],
-    providers: [
-        InputTrackerService,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+  ],
+  declarations: [
+    FabricTextfieldComponent,
+  ],
+  exports: [
+    FabricTextfieldComponent,
+  ],
+  providers: [
+    InputTrackerService,
+  ],
 })
-export class FabricTextfieldModule { }
+export class FabricTextfieldModule {
+}

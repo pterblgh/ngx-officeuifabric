@@ -1,4 +1,4 @@
 export enum DropdownItemType {
-    Header = 'HEADER',
-    Divider = 'DIVIDER',
+  Header = 'HEADER',
+  Divider = 'DIVIDER',
 }

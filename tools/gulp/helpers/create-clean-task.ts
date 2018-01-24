@@ -7,7 +7,7 @@ import * as del from 'del';
  * @param path
  */
 export function createCleanTask(taskName: string, path: string): string {
-    taskName = `clean:${taskName}`;
-    task(taskName, () => del(path));
-    return taskName;
+  taskName = `clean:${taskName}`;
+  task(taskName, () => del(path));
+  return taskName;
 }

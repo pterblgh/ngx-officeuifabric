@@ -34,11 +34,13 @@ export class FabricPersonaComponent implements OnInit {
   get realSize(): number {
     return this._size;
   }
+
   set realSize(value: number) {
     this._size = value;
   }
 
-  constructor(private readonly personaService: FabricPersonaService) { }
+  constructor(private readonly personaService: FabricPersonaService) {
+  }
 
   ngOnInit(): void {
     this.realSize = Number(this.size.split('size')[1]);

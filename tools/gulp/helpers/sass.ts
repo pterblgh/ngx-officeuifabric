@@ -12,7 +12,7 @@ const postcss = require('gulp-postcss');
  * @param outPath
  * @param includePaths
  */
-export function createSassTask(taskName: string, path: string, outPath: string, includePaths?: string[]): string {
+export function sass(taskName: string, path: string, outPath: string, includePaths?: string[]): string {
   taskName = `sass:${taskName}`;
   const scssGlob = '/**/*.scss';
   if (path.slice(-scssGlob.length) !== scssGlob) {

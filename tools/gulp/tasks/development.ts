@@ -7,7 +7,7 @@ import {
   createWatchTask,
   clean,
   createCompileTask,
-  createSassTask,
+  sass,
 } from 'gulp-helpers';
 import { buildConfig } from 'build';
 
@@ -33,7 +33,7 @@ task('connect', () => {
 });
 
 const compileTask = createCompileTask('demo-app:ts', demoAppPath, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
-const sassTask = createSassTask('demo-app', demoAppPath, DEMO_APP_OUT_PATH);
+const sassTask = sass('demo-app', demoAppPath, DEMO_APP_OUT_PATH);
 const copyAssetsTask = copy('demo-app:assets', ['**/*.html', '**/*.js'], {path: demoAppPath}, DEMO_APP_OUT_PATH);
 
 const watchers = [

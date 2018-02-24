@@ -3,7 +3,7 @@ import { task } from 'gulp';
 import { server } from 'gulp-connect';
 import {
   runSequence,
-  createCopyTask,
+  copy,
   createWatchTask,
   clean,
   createCompileTask,
@@ -34,7 +34,7 @@ task('connect', () => {
 
 const compileTask = createCompileTask('demo-app:ts', demoAppPath, DEMO_APP_OUT_PATH, tscConfig.compilerOptions);
 const sassTask = createSassTask('demo-app', demoAppPath, DEMO_APP_OUT_PATH);
-const copyAssetsTask = createCopyTask('demo-app:assets', ['**/*.html', '**/*.js'], {path: demoAppPath}, DEMO_APP_OUT_PATH);
+const copyAssetsTask = copy('demo-app:assets', ['**/*.html', '**/*.js'], {path: demoAppPath}, DEMO_APP_OUT_PATH);
 
 const watchers = [
   {
@@ -60,7 +60,7 @@ task('watch:demo-app', runSequence(...watchTasks));
 
 task('build', runSequence(
   clean('demo-app', DEMO_APP_OUT_PATH),
-  createCopyTask('demo-app:vendor', vendor, {
+  copy('demo-app:vendor', vendor, {
     path: buildConfig.projectDir,
     base: './node_modules',
   }, `${DEMO_APP_OUT_PATH}/node_modules`),

@@ -10,7 +10,7 @@ import * as typescript from 'gulp-typescript';
  * @param outPath
  * @param compilerOptions
  */
-export function createCompileTask(taskName: string, path: string, outPath: string, compilerOptions: CompilerOptions): string {
+export function compile(taskName: string, path: string, outPath: string, compilerOptions: CompilerOptions): string {
   taskName = `compile:${taskName}`;
   task(taskName, () => {
     return src(`${path}/**/*.ts`)

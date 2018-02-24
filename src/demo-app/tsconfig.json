@@ -17,9 +17,9 @@
     "typeRoots": [
       "../../node_modules/@types/!(node)"
     ],
-    "baseUrl": "./src/demo-app/",
+    "baseUrl": "./",
     "paths": {
-      "ngx-fabric": ["../lib/index"]
+      "ngx-officeuifabric": ["../lib/index"]
     }
   }
 }

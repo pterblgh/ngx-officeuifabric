@@ -5,7 +5,7 @@ import {
   FabricFormElementModule, FabricTextfieldModule, FabricRatingModule,
   FabricDropdownModule, FabricPersonaModule, FabricTagModule,
   FabricRadioModule, FabricCalloutModule,
-} from 'ngx-fabric';
+} from 'ngx-officeuifabric';
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';

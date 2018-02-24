@@ -34,7 +34,7 @@
       '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
 
       // fabric
-      'ngx-fabric': 'lib',
+      'ngx-officeuifabric': 'lib',
 
       // other libraries
       'rxjs': 'npm:rxjs',
@@ -50,7 +50,7 @@
         }
       },
       rxjs: { main: 'index' },
-      'ngx-fabric': {
+      'ngx-officeuifabric': {
         defaultExtension: 'js',
         main: 'index',
         meta: {

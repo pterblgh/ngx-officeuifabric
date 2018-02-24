@@ -6,7 +6,7 @@ import {
   PersonaPillSize,
   PersonaPresence,
   CalloutConfig,
-} from 'ngx-fabric';
+} from 'ngx-officeuifabric';
 
 @Component({
   selector: 'my-app',

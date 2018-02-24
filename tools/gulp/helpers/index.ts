@@ -2,7 +2,7 @@ export * from './run-sequence';
 
 /** Task factories */
 export * from './copy';
-export * from './create-watch-task';
+export * from './watch';
 export * from './clean';
 export * from './compile';
 export * from './sass';

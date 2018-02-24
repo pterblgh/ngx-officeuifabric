@@ -4,7 +4,7 @@ import { server } from 'gulp-connect';
 import {
   runSequence,
   copy,
-  createWatchTask,
+  watch,
   clean,
   compile,
   sass,
@@ -54,7 +54,7 @@ const watchers = [
   },
 ];
 
-const watchTasks = watchers.map(watch => createWatchTask(watch.name, watch.path, watch.tasks));
+const watchTasks = watchers.map(({ name, path, tasks }) => watch(name, path, tasks));
 
 task('watch:demo-app', runSequence(...watchTasks));
 

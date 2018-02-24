@@ -5,7 +5,7 @@ import {
   runSequence,
   createCopyTask,
   createWatchTask,
-  createCleanTask,
+  clean,
   createCompileTask,
   createSassTask,
 } from 'gulp-helpers';
@@ -59,7 +59,7 @@ const watchTasks = watchers.map(watch => createWatchTask(watch.name, watch.path,
 task('watch:demo-app', runSequence(...watchTasks));
 
 task('build', runSequence(
-  createCleanTask('demo-app', DEMO_APP_OUT_PATH),
+  clean('demo-app', DEMO_APP_OUT_PATH),
   createCopyTask('demo-app:vendor', vendor, {
     path: buildConfig.projectDir,
     base: './node_modules',

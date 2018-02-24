@@ -21,7 +21,7 @@ export function createSassTask(taskName: string, path: string, outPath: string, 
   task(taskName, () => {
     return src(path)
       .pipe(gulpSass(includePaths ? {includePaths} : undefined).on('error', gulpSass.logError))
-      .pipe(postcss([autoprefixer()]))
+      .pipe(postcss([autoprefixer()], { url: 'inline' }))
       .pipe(dest(outPath));
   });
   return taskName;

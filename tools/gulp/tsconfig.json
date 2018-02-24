@@ -13,9 +13,9 @@
         "node",
         "gulp"
       ],
-      "baseUrl": ".",
+      "baseUrl": "./",
       "paths": {
-        "gulp-helpers": ["./helpers/index"],
+        "gulp-helpers": ["helpers/index"],
         "build": ["../build/index"]
       }
     },
@@ -23,4 +23,3 @@
       "gulpfile.ts"
     ]
   }
-  

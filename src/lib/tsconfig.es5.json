@@ -6,15 +6,12 @@
     "baseUrl": "",
     "types": []
   },
-  "files": [
-    "./index.ts"
-  ],
+  "files": ["public-api.ts"],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "ngx-officeuifabric.js",
-    "flatModuleId": "ngx-officeuifabric",
-    "genDir": "../../out-tsc/lib-gen-dir/"
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "ngx-officeuifabric"
   }
 }

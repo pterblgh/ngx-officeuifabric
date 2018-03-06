@@ -7,7 +7,7 @@ export function inlineSources(taskName: string, path: string, outPath: string): 
   taskName = `inline-resources:${taskName}`;
   task(taskName, () => {
     return src(path)
-      .pipe(inlineResources({ useRelativePaths: true }))
+      .pipe(inlineResources({ useRelativePaths: true, removeLineBreaks: true }))
       .pipe(dest(outPath));
   });
   return taskName;

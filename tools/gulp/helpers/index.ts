@@ -8,3 +8,6 @@ export * from './compile';
 export * from './sass';
 export * from './inline-sources';
 export * from './ngc';
+export * from './rollup';
+export * from './uglify';
+export * from './html-min';

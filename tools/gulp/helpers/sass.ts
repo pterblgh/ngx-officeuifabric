@@ -23,7 +23,7 @@ export function sass(taskName: string, path: string, outPath: string, includePat
   }
   task(taskName, () => {
     return src(path)
-      .pipe(gulpSass(includePaths ? { includePaths } : undefined).on('error', gulpSass.logError))
+      .pipe(gulpSass(includePaths ? { includePaths, outputStyle: 'compressed' } : undefined).on('error', gulpSass.logError))
       .pipe(postcss([autoprefixer()], { url: 'inline' }))
       .pipe(dest(outPath));
   });

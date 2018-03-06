@@ -23,7 +23,7 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "index.js",
+    "flatModuleOutFile": "ngx-officeuifabric.js",
     "flatModuleId": "ngx-officeuifabric"
   }
 }

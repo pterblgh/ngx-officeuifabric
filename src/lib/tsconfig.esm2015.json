@@ -7,7 +7,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "rootDir": ".",
-    "outDir": "../esm2015",
+    "outDir": "esm2015",
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "importHelpers": true,

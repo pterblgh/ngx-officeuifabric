@@ -9,3 +9,4 @@ export * from './radio/public-api';
 export * from './rating/public-api';
 export * from './tag/public-api';
 export * from './textfield/public-api';
+export * from './spinner/public-api';

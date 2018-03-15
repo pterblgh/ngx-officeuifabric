@@ -117,16 +117,10 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
     "component-selector": [
       true,
       "element",
-      "app",
+      ["app", "fab"],
       "kebab-case"
     ],
     "no-output-on-prefix": true,

@@ -1,9 +1,8 @@
 {
-  "extends": "./tsconfig.esm2015.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "outDir": "esm5",
-    "rootDir": "."
+    "outDir": "esm5"
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

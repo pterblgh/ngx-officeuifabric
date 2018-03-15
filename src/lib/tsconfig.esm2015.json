@@ -1,24 +1,9 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "module": "es2015",
     "target": "es2015",
-    "baseUrl": "./tmp",
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "rootDir": ".",
-    "outDir": "esm2015",
-    "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "importHelpers": true,
-    "newLine": "lf",
-    "sourceMap": true,
-    "inlineSources": true,
-    "lib": ["es2015", "dom"],
-    "skipLibCheck": true,
-    "types": []
+    "outDir": "esm2015"
   },
-  "files": ["public-api.ts"],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,

@@ -15,8 +15,8 @@
       ],
       "baseUrl": "./",
       "paths": {
-        "gulp-helpers": ["helpers/index"],
-        "build": ["../build/index"]
+        "gulp-helpers": ["gulp-helpers/index"],
+        "build": ["helpers/index"]
       }
     },
     "files": [

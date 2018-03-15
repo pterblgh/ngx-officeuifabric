@@ -12,6 +12,7 @@ export interface RollupConfig {
   output: {
     file: string;
   };
+  sourcemap?: boolean;
   globals?: { [key: string]: string };
   plugins?: (() => void)[];
 }

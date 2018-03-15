@@ -14,29 +14,28 @@ const path = {
     esm5: join(projectDir, 'tmp', 'esm5'),
   },
   dist: {
-    root: join(projectDir, 'dist'),
-    src: join(projectDir, 'dist', 'src'),
-    esm2015: join(projectDir, 'dist', 'esm2015'),
-    esm5: join(projectDir, 'dist', 'esm5'),
-    bundle: join(projectDir, 'dist', 'bundles'),
+    root: join(projectDir, 'dist', 'lib'),
+    src: join(projectDir, 'dist', 'lib', 'src'),
+    esm2015: join(projectDir, 'dist', 'lib', 'esm2015'),
+    esm5: join(projectDir, 'dist', 'lib', 'esm5'),
+    bundle: join(projectDir, 'dist', 'lib', 'bundles'),
   },
 };
 
 task('clean:sources', runSequence(
-  clean('tmp:html', `${path.tmp.src}/**/*.html`),
-  clean('tmp:sass', `${path.tmp.src}/**/*.scss`),
-  clean('tmp:css', `${path.tmp.src}/**/*.css`),
+  clean('tmp:html', `${path.tmp.root}/**/*.html`),
+  clean('tmp:sass', `${path.tmp.root}/**/*.scss`),
+  clean('tmp:css', `${path.tmp.root}/**/*.css`),
 ));
 
 task('build:lib', runSequence(
   clean('tmp', path.tmp.root),
-  copy('tmp', ['**/*'], { path: path.lib }, path.tmp.src),
-  htmlMin('tmp', path.tmp.src, path.tmp.src),
-  sass('lib', path.tmp.src, path.tmp.src, [`${path.tmp.src}/common/styles`]),
-  inlineSources('lib', join(path.tmp.src, '**/*.component.ts'), path.tmp.src),
+  copy('tmp', ['**/*'], { path: path.lib }, path.tmp.root),
+  htmlMin('tmp', path.tmp.root, path.tmp.root),
+inlineSources('lib', join(path.tmp.root, '**/*.component.ts'), path.tmp.root),
   'clean:sources',
-  ngc('esm5', join(path.tmp.src, 'tsconfig.esm5.json')),
-  ngc('esm2015', join(path.tmp.src, 'tsconfig.esm2015.json')),
+  ngc('esm5', join(path.tmp.root, 'tsconfig.esm5.json')),
+  ngc('esm2015', join(path.tmp.root, 'tsconfig.esm2015.json')),
   'bundle:lib',
 ));
 
@@ -88,43 +87,46 @@ const rollupGlobals = {
   'rxjs/operators/combineLatest': 'Rx.operators',
 };
 
-const esm2015RollupConfig: RollupConfig = {
-  input: join(path.tmp.esm2015, (require(join(path.tmp.src, 'tsconfig.esm2015.json'))).angularCompilerOptions.flatModuleOutFile),
+const getEsm2015RollupConfig = (): RollupConfig => ({
+  input: join(path.tmp.esm2015, (require(join(path.lib, 'tsconfig.esm2015.json'))).angularCompilerOptions.flatModuleOutFile),
   external: Object.keys(rollupGlobals),
   format: 'es',
   output: {
-    file: join(path.dist.esm2015, (require(join(path.tmp.src, 'tsconfig.esm2015.json'))).angularCompilerOptions.flatModuleOutFile),
+    file: join(path.dist.esm2015, (require(join(path.lib, 'tsconfig.esm2015.json'))).angularCompilerOptions.flatModuleOutFile),
   },
-};
+  sourcemap: true,
+});
 
-const esm5RollupConfig: RollupConfig = {
-  input: join(path.tmp.esm5, (require(join(path.tmp.src, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
+const getEsm5RollupConfig = (): RollupConfig => ({
+  input: join(path.tmp.esm5, (require(join(path.lib, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
   external: Object.keys(rollupGlobals),
   format: 'es',
   output: {
-    file: join(path.dist.esm5, (require(join(path.tmp.src, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
+    file: join(path.dist.esm5, (require(join(path.lib, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
   },
-};
+  sourcemap: true,
+});
 
-const umdRollupConfig: RollupConfig = {
-  input: join(path.tmp.esm5, (require(join(path.tmp.src, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
+const getUmdRollupConfig = (): RollupConfig => ({
+  input: join(path.tmp.esm5, (require(join(path.lib, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleOutFile),
   format: 'umd',
   name: 'ngxOfficeUiFabric',
   external: Object.keys(rollupGlobals),
   output: {
-    file: join(path.dist.bundle, `${(require(join(path.tmp.src, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleId}.umd.js`),
+    file: join(path.dist.bundle, `${(require(join(path.lib, 'tsconfig.esm5.json'))).angularCompilerOptions.flatModuleId}.umd.js`),
   },
   globals: rollupGlobals,
-};
+  sourcemap: true,
+});
 
 task('bundle:lib', runSequence(
   clean('dist', path.dist.root),
   copy('metadata', ['**/*.metadata.json'], { path: path.tmp.esm2015 }, path.dist.root),
-  copy('type-definitions:lib', ['*/**/*.d.ts'], { path: path.tmp.esm2015 }, path.dist.src),
-  copy('type-definitions:lib', ['*.d.ts'], { path: path.tmp.esm2015 }, path.dist.root),
-  copy('package.json', ['package.json'], { path: path.tmp.src }, path.dist.root),
-  rollup('esm5', esm5RollupConfig),
-  rollup('esm2015', esm2015RollupConfig),
-  rollup('umd', umdRollupConfig),
+  copy('type-definitions:lib', ['**/*.d.ts'], { path: path.tmp.esm2015 }, path.dist.root),
+  copy('type-definition:lib', ['*.d.ts'], { path: path.tmp.esm2015 }, path.dist.root),
+  copy('package.json', ['package.json'], { path: path.tmp.root }, path.dist.root),
+  rollup('esm5', getEsm5RollupConfig()),
+  rollup('esm2015', getEsm2015RollupConfig()),
+  rollup('umd', getUmdRollupConfig()),
   uglifyJsFile('umd', path.dist.bundle, path.dist.bundle),
 ));

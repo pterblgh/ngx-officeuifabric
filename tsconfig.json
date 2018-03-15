@@ -1,16 +1,28 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "module": "es2015",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
-    "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "skipLibCheck": true,
-    "target": "es2015",
-    "lib": ["es5", "es2015", "dom"]
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "baseUrl": "./",
+    "paths": {
+      "ngx-officeuifabric": ["src/lib"]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
   },
-  "include": [
-    "src/**/*.ts",
-    "tools/**/*.ts"
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "dist"
   ]
 }

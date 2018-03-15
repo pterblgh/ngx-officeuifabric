@@ -6,12 +6,12 @@ import {
   PersonaPillSize,
   PersonaPresence,
   CalloutConfig,
-} from 'ngx-fabric';
+} from 'ngx-officeuifabric';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
 

@@ -8,6 +8,7 @@ import { NgModel } from '@angular/forms';
 
 @Directive({
   selector: 'fab-radio-group',
+  exportAs: 'fabRadioGroup'
 })
 export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
 
@@ -42,8 +43,7 @@ export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
     }
   }
 
-  constructor(@Optional() private ngModel: NgModel) {
-  }
+  constructor(@Optional() private ngModel: NgModel) { }
 
   ngAfterContentInit(): void {
     this._updateRadioButtons();

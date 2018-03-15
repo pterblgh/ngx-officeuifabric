@@ -1,4 +1,4 @@
-import { task, watch } from 'gulp';
+import * as gulp from 'gulp';
 
 /**
  * Creates a watch task which triggers other tasks to run
@@ -7,8 +7,8 @@ import { task, watch } from 'gulp';
  * @param path
  * @param trigger
  */
-export function createWatchTask(taskName: string, path: string | string[], trigger: string[]): string {
+export function watch(taskName: string, path: string | string[], trigger: string[]): string {
   taskName = `watch:${taskName}`;
-  task(taskName, () => watch(path, trigger));
+  gulp.task(taskName, () => gulp.watch(path, trigger));
   return taskName;
 }

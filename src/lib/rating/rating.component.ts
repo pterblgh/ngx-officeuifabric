@@ -1,14 +1,11 @@
-import { Component, OnInit, Input, Self, Optional, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, OnDestroy, HostBinding } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'fab-rating',
-  styleUrls: ['./rating.component.css'],
+  styleUrls: ['./rating.component.scss'],
   templateUrl: './rating.component.html',
-  host: {
-    '[class.disabled]': 'disabled',
-  },
 })
 export class FabricRatingComponent implements OnInit, OnDestroy {
 
@@ -17,7 +14,10 @@ export class FabricRatingComponent implements OnInit, OnDestroy {
 
   @Input() min: number;
   @Input() max: number;
-  @Input() disabled: boolean;
+
+  @Input()
+  @HostBinding('class.disabled')
+  disabled: boolean;
 
   starStates: string[];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, HostBinding } from '@angular/core';
 import { DropdownItem } from './dropdown-item.interface';
 import { DropdownItemType } from './dropdown-item-type.enum';
 import { CdkConnectedOverlay } from '@angular/cdk/overlay';
@@ -8,10 +8,7 @@ import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 @Component({
   selector: 'fab-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css'],
-  host: {
-    '[class.disabled]': 'disabled',
-  },
+  styleUrls: ['./dropdown.component.scss'],
   animations: [
     trigger('actionEditor', [
       state('true', style({transform: 'translate3d(0px, 0px, 0px)'})),
@@ -34,8 +31,11 @@ export class FabricDropdownComponent implements OnInit {
 
   @Input() label: string;
   @Input() items: DropdownItem[];
-  @Input() disabled: boolean;
   @Input() defaultSelectedKey: string;
+
+  @Input()
+  @HostBinding('class.disabled')
+  disabled: boolean;
 
   @Input()
   get placeholder(): string {

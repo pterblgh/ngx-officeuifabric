@@ -1,0 +1,15 @@
+{
+  "name": "ngx-officeuifabric",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "peerDependencies": {
+    "@angular/common": "^5.2.0",
+    "@angular/core": "^5.2.0"
+  },
+  "main": "bundles/ngx-officeuifabric.umd.js",
+  "module": "esm5/ngx-officeuifabric.js",
+  "es2015": "esm2015/ngx-officeuifabric.js",
+  "typings": "ngx-officeuifabric.d.ts",
+  "metadata": "ngx-officeuifabric.metadata.json"
+}

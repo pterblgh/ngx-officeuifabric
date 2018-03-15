@@ -1,4 +1,4 @@
-import { Component, ContentChild, AfterContentInit, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, AfterContentInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { FabricInputDirective } from './input.directive';
 import { FabricLabelDirective } from './label.directive';
 import { FormElementService } from './form-element.service';
@@ -6,16 +6,15 @@ import { FormElementService } from './form-element.service';
 @Component({
   selector: 'fab-form-element',
   templateUrl: './form-element.component.html',
-  styleUrls: ['./form-element.component.css'],
-  host: {
-    class: 'fab-form-container',
-  },
+  styleUrls: ['./form-element.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class FabricFormElementComponent implements AfterContentInit {
 
   @ContentChild(FabricLabelDirective) private _labelElement: FabricLabelDirective;
   @ContentChild(FabricInputDirective) private _inputElement: FabricInputDirective;
+
+  @HostBinding('class') formContainerClass = 'fab-form-container';
 
   constructor(private _formElementService: FormElementService) {
   }

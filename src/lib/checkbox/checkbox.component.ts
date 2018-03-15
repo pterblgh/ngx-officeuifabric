@@ -3,12 +3,12 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'fab-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css'],
+  styleUrls: ['./checkbox.component.scss'],
 })
 export class FabricCheckboxComponent {
 
-  @Input() isSelected: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() isSelected = false;
+  @Input() disabled = false;
 
   toggleCheckbox(): void {
     if (!this.disabled) {

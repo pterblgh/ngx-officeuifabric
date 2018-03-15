@@ -6,7 +6,7 @@ import { FabricPersonaService } from './persona.service';
 
 @Component({
   selector: 'fab-persona',
-  styleUrls: ['./persona.component.css'],
+  styleUrls: ['./persona.component.scss'],
   templateUrl: './persona.component.html',
 })
 export class FabricPersonaComponent implements OnInit {

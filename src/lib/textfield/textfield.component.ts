@@ -2,19 +2,19 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { InputTrackerService } from './input-tracker.service';
 
 @Component({
-  selector: 'fabric-textfield',
+  selector: 'fab-textfield',
   templateUrl: './textfield.component.html',
-  styleUrls: ['./textfield.component.css'],
+  styleUrls: ['./textfield.component.scss'],
 })
 export class FabricTextfieldComponent implements OnInit, OnDestroy {
 
   private _textInputId: number;
 
   @Input() label: string;
-  @Input() placeholder: string = '';
-  @Input() required: boolean = false;
-  @Input() errorMessage: string = '';
-  @Input() underlined: boolean = false;
+  @Input() placeholder = '';
+  @Input() required = false;
+  @Input() errorMessage = '';
+  @Input() underlined = false;
   @Input() value: string;
 
   constructor(private inputTrackerService: InputTrackerService) {

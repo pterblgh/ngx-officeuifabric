@@ -25,7 +25,7 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
   };
 
   private _overlayRef: OverlayRef;
-  private _backdropClicked$: Observable<void>;
+  private _backdropClicked$: Observable<MouseEvent>;
   private _subscription: Subscription;
   private _config: CalloutConfig;
 

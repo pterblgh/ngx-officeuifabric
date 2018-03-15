@@ -14,7 +14,7 @@ export interface SrcConfig {
  * @param srcConfig
  * @param outPath
  */
-export function createCopyTask(taskName: string, files: string[], srcConfig: SrcConfig, outPath: string): string {
+export function copy(taskName: string, files: string[], srcConfig: SrcConfig, outPath: string): string {
   taskName = `copy:${taskName}`;
   task(taskName, () => {
     return src(files.map(file => `${srcConfig.path}/${file}`), srcConfig.base ? {base: srcConfig.base} : undefined)

@@ -7,7 +7,7 @@ const autoprefixer = require('autoprefixer');
 /** gulp-inline-ng2-template has no type definitions */
 const inlineResources = require('gulp-inline-ng2-template');
 
-function styleProcessor(path: string, ext: string, file: string, cb: (err: Error | null, result: string | null) => void) {
+function styleProcessor(path: string, _ext: string, _file: string, cb: (err: Error | null, result: string | null) => void) {
   sass.render({
     file: path,
     includePaths: ['node_modules/office-ui-fabric-core/src/sass/variables', 'src/lib/common/styles'],

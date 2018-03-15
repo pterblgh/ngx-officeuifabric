@@ -1,15 +1,14 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, OnInit, HostBinding } from '@angular/core';
 
 @Directive({
   selector: 'label[fabLabel], label[fab-label]',
-  host: {
-    '[class.required]': '_required',
-  },
 })
 export class FabricLabelDirective implements OnInit {
 
-  private _required: boolean = false;
+  @HostBinding('class.required')
+  private _required = false;
   private _element: HTMLLabelElement;
+
 
   constructor(private _elemRef: ElementRef) {
   }

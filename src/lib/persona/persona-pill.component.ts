@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { PersonaPillSize } from './persona-pill-size.enum';
 import { PersonaInitialsColor } from './persona-initials-colors.enum';
 import { PersonaPresence } from './persona-presence.enum';
@@ -8,24 +8,23 @@ import { FabricPersonaService } from './persona.service';
   selector: 'fab-persona-pill',
   templateUrl: './persona-pill.component.html',
   styleUrls: ['./persona-pill.component.scss'],
-  host: {
-    '[class]': 'size',
-  },
 })
 export class FabricPersonaPillComponent implements OnInit {
 
   @Input() primaryText?: string;
-  @Input() size = PersonaPillSize.Size24;
   @Input() imageInitials?: string;
   @Input() initialsColor?: PersonaInitialsColor;
   @Input() presence?: PersonaPresence;
   @Input() showPresence = true;
   @Input() hidePersonaDetails = false;
 
+  @HostBinding('class')
+  @Input()
+  size = PersonaPillSize.Size24;
+
   PersonaPresence = PersonaPresence;
 
-  constructor(private readonly personaService: FabricPersonaService) {
-  }
+  constructor(private readonly personaService: FabricPersonaService) { }
 
   ngOnInit(): void {
     if (this.primaryText) {

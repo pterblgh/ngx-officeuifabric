@@ -1,9 +1,5 @@
 @import 'persona-mixins';
-
-@mixin size($size) {
-  width: $size;
-  height: $size;
-}
+@import 'size';
 
 @mixin generateForSize($className, $size) {
   $fontSizeMap: (24px: 11px, 28px: 12px);

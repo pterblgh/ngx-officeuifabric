@@ -6,6 +6,7 @@ import {
   PersonaPillSize,
   PersonaPresence,
   CalloutConfig,
+  SpinnerSize,
 } from 'ngx-officeuifabric';
 
 @Component({
@@ -44,6 +45,7 @@ export class AppComponent implements OnInit {
 
   PersonaSize = PersonaSize;
   PersonaPillSize = PersonaPillSize;
+  SpinnerSize = SpinnerSize;
 
   hidePersonaDetails = false;
   persona = {

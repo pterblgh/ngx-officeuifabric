@@ -24,7 +24,8 @@
       "stylePreprocessorOptions": {
         "includePaths": [
           "../../node_modules/office-ui-fabric-core/src/sass/variables",
-          "../lib/common/styles"
+          "../lib/common/styles",
+          "../lib/common/mixins"
         ]
       },
       "scripts": [],

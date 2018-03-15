@@ -1,7 +1,7 @@
 const { join } = require('path');
 
 /** Current version of the project*/
-const buildVersion = require('./package.json').version;
+const buildVersion = require('./src/lib/package.json').version;
 
 module.exports = {
   projectVersion: buildVersion,

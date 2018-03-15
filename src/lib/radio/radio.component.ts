@@ -13,7 +13,7 @@ import { FabricRadioGroupDirective } from './radio-group.directive';
 @Component({
   selector: 'fab-radio',
   templateUrl: './radio.component.html',
-  styleUrls: ['./radio.component.css'],
+  styleUrls: ['./radio.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FabricRadioComponent {

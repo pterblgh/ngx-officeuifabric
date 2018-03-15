@@ -8,7 +8,7 @@ import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 @Component({
   selector: 'fab-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css'],
+  styleUrls: ['./dropdown.component.scss'],
   host: {
     '[class.disabled]': 'disabled',
   },

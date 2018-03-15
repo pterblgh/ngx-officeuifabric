@@ -4,7 +4,7 @@ import { InputTrackerService } from './input-tracker.service';
 @Component({
   selector: 'fabric-textfield',
   templateUrl: './textfield.component.html',
-  styleUrls: ['./textfield.component.css'],
+  styleUrls: ['./textfield.component.scss'],
 })
 export class FabricTextfieldComponent implements OnInit, OnDestroy {
 

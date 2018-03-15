@@ -7,7 +7,7 @@ import { FabricPersonaService } from './persona.service';
 @Component({
   selector: 'fab-persona-pill',
   templateUrl: './persona-pill.component.html',
-  styleUrls: ['./persona-pill.component.css'],
+  styleUrls: ['./persona-pill.component.scss'],
   host: {
     '[class]': 'size',
   },

@@ -6,7 +6,7 @@ import { FormElementService } from './form-element.service';
 @Component({
   selector: 'fab-form-element',
   templateUrl: './form-element.component.html',
-  styleUrls: ['./form-element.component.css'],
+  styleUrls: ['./form-element.component.scss'],
   host: {
     class: 'fab-form-container',
   },

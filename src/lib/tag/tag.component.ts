@@ -3,7 +3,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'fab-tag',
   templateUrl: './tag.component.html',
-  styleUrls: ['./tag.component.css'],
+  styleUrls: ['./tag.component.scss'],
 })
 export class FabricTagComponent {
 

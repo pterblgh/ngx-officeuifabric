@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'fab-rating',
-  styleUrls: ['./rating.component.css'],
+  styleUrls: ['./rating.component.scss'],
   templateUrl: './rating.component.html',
   host: {
     '[class.disabled]': 'disabled',

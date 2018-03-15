@@ -7,7 +7,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'fab-callout',
   templateUrl: './callout.component.html',
-  styleUrls: ['./callout.component.css'],
+  styleUrls: ['./callout.component.scss'],
   animations: [
     trigger('callout', [
       transition(':enter', [

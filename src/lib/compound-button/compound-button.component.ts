@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class FabricCompoundButtonComponent {
 
-  @Input() primary: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() primary = false;
+  @Input() disabled = false;
   @Input() description: string;
   @Input() onClick: () => void;
 

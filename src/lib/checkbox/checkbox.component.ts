@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class FabricCheckboxComponent {
 
-  @Input() isSelected: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() isSelected = false;
+  @Input() disabled = false;
 
   toggleCheckbox(): void {
     if (!this.disabled) {

@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class FabricButtonComponent {
-  @Input() primary: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() primary = false;
+  @Input() disabled = false;
 }

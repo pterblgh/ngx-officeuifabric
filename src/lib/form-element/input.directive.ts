@@ -13,7 +13,7 @@ export class FabricInputDirective implements OnInit {
 
   constructor(
     private _control: NgModel,
-    private _elemRef: ElementRef
+    private _elemRef: ElementRef,
   ) { }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { NgModel } from '@angular/forms';
 
 @Directive({
   selector: 'fab-radio-group',
-  exportAs: 'fabRadioGroup'
+  exportAs: 'fabRadioGroup',
 })
 export class FabricRadioGroupDirective implements AfterContentInit, OnChanges {
 

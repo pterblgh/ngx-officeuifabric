@@ -27,9 +27,10 @@ export class FabricRadioComponent {
   @Input() disabled = false;
   @Input() id = FabricRadioComponent._nextId++;
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef,
-              @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective) {
-  }
+  constructor(
+    private _changeDetectorRef: ChangeDetectorRef,
+    @Optional() @Host() @Inject(forwardRef(() => FabricRadioGroupDirective)) private _radioGroup?: FabricRadioGroupDirective,
+  ) { }
 
   markForCheck() {
     this._changeDetectorRef.markForCheck();

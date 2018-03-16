@@ -7,10 +7,10 @@ import { FabricSpinnerComponent } from './spinner.component';
     CommonModule,
   ],
   declarations: [
-    FabricSpinnerComponent
+    FabricSpinnerComponent,
   ],
   exports: [
-    FabricSpinnerComponent
+    FabricSpinnerComponent,
   ],
 })
 export class FabricSpinnerModule { }

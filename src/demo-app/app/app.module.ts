@@ -4,7 +4,7 @@ import {
   FabricButtonModule, FabricCompoundButtonModule, FabricCheckboxModule,
   FabricFormElementModule, FabricTextfieldModule, FabricRatingModule,
   FabricDropdownModule, FabricPersonaModule, FabricTagModule,
-  FabricRadioModule, FabricCalloutModule, FabricSpinnerModule,
+  FabricRadioModule, FabricCalloutModule, FabricSpinnerModule, FabricNavModule,
 } from 'ngx-officeuifabric';
 
 import { AppComponent } from './app.component';
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FabricRadioModule,
     FabricCalloutModule,
     FabricSpinnerModule,
+    FabricNavModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

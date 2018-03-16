@@ -1,0 +1,23 @@
+<div class="nav-container" [class.fixed]="fixed">
+  <div class="nav-opener">
+    <div class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="grid">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="app-name-container" *ngIf="appName">
+    <h1>{{ appName }}</h1>
+  </div>
+</div>

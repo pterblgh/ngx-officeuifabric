@@ -67,6 +67,14 @@
   }
 }
 
+.fab-nav-overlay-container {
+  $navHeight: 50px;
+
+  margin-top: $navHeight;
+  height: calc(100vh - #{$navHeight});
+  background-color: $ms-color-white;
+}
+
 @media screen and (min-width: 1024px) {
   .nav-container {
     .nav-opener {

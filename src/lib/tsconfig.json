@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "baseUrl": "./tmp",
     "target": "es5",
     "module": "es2015",
     "experimentalDecorators": true,

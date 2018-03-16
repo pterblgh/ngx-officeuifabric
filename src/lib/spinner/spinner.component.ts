@@ -4,7 +4,7 @@ import { SpinnerSize } from './spinner-size.enum';
 @Component({
   selector: 'fab-spinner',
   templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.scss']
+  styleUrls: ['./spinner.component.scss'],
 })
 export class FabricSpinnerComponent {
 

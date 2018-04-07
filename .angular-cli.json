@@ -49,10 +49,6 @@
     {
       "project": "src/demo-app/tsconfig.spec.json",
       "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "e2e/demo-app/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
     }
   ],
   "test": {

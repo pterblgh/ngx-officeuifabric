@@ -11,3 +11,4 @@ export * from './tag/public-api';
 export * from './textfield/public-api';
 export * from './spinner/public-api';
 export * from './nav/public-api';
+export * from './dialog/public-api';

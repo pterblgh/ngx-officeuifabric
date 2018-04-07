@@ -1,4 +1,6 @@
 export interface FabricDialogConfig {
-  canDismiss: boolean;
-  backdropClass: string;
+  dismissOnBackdropClick?: boolean;
+  dismissOnEsc?: boolean;
+  hasBackdrop?: boolean;
+  backdropClass?: string;
 }

@@ -59,7 +59,7 @@ export class FabricDialogService {
   }
 
   private _closeDialog(subscription: Subscription) {
-    this._overlayRef.detach();
+    this._overlayRef.dispose();
     subscription.unsubscribe();
   }
 

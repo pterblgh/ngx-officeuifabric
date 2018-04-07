@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { ComponentType, ComponentPortal } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { FabricDialogConfig } from './dialog-config.interface';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { filter } from 'rxjs/operators/filter';
+import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
 export class FabricDialogService {
@@ -18,12 +21,24 @@ export class FabricDialogService {
     };
   }
 
-  open<T>(component: ComponentType<T>, config?: FabricDialogConfig) {
+  open<T>(component: ComponentType<T>, _config?: FabricDialogConfig) {
+    const config = this._mergeConfig(_config);
     if (!this._overlayRef) {
-      this._overlayRef = this._createOverlay(this._createConfig(config));
-      this._overlayRef.backdropClick().subscribe(() => this._overlayRef.detach());
+      const overlayConfig = this._createConfig(config);
+      this._overlayRef = this._createOverlay(overlayConfig);
     }
     const portal = new ComponentPortal(component);
+    if (config.dismissOnBackdropClick) {
+      const subscription = this._overlayRef.backdropClick()
+        .subscribe(() => this._closeDialog(subscription));
+    }
+    if (config.dismissOnEsc) {
+      const subscription = fromEvent(document, 'keydown')
+        .pipe(
+          filter((e: KeyboardEvent) => e.keyCode === 27),
+        )
+        .subscribe(() => this._closeDialog(subscription));
+    }
     this._overlayRef.attach(portal);
   }
 
@@ -40,6 +55,14 @@ export class FabricDialogService {
       backdropClass,
     });
   }
+
+  private _mergeConfig(config?: FabricDialogConfig): FabricDialogConfig {
+    return config ? { ...this._dialogConfig, ...config } : this._dialogConfig;
+  }
+
+  private _closeDialog(subscription: Subscription) {
+    this._overlayRef.detach();
+    subscription.unsubscribe();
   }
 
 }

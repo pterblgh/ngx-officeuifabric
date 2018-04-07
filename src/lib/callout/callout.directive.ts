@@ -59,12 +59,10 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
   private _openOverlay() {
     if (this._config) {
       const config = this._createConfig(this._config);
-      if (!this._overlayRef) {
-        this._overlayRef = this._overlay.create(config);
-        if (this._config.canDismiss) {
-          this._backdropClicked$ = this._overlayRef.backdropClick();
-          this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.detach());
-        }
+      this._overlayRef = this._overlay.create(config);
+      if (this._config.canDismiss) {
+        this._backdropClicked$ = this._overlayRef.backdropClick();
+        this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.dispose());
       }
       const injector = this._createInjector(this._config);
       const portal = new ComponentPortal(FabricCalloutComponent, null, injector);

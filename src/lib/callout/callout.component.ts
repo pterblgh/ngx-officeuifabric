@@ -28,7 +28,7 @@ export class FabricCalloutComponent {
   }
 
   onCloseClick() {
-    this._overlayRef.detach();
+    this._overlayRef.dispose();
   }
 
 }

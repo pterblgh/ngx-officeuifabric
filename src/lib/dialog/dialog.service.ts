@@ -6,13 +6,13 @@ import { FabricDialogConfig } from './dialog-config.interface';
 @Injectable()
 export class FabricDialogService {
 
-  private _defaultOverlayConfig: OverlayConfig;
   private _overlayRef: OverlayRef;
+  private _dialogConfig: FabricDialogConfig;
 
   constructor(private _overlay: Overlay) {
-    this._defaultOverlayConfig = {
-      positionStrategy: _overlay.position().global().centerHorizontally().centerVertically(),
-      scrollStrategy: _overlay.scrollStrategies.block(),
+    this._dialogConfig = {
+      dismissOnBackdropClick: true,
+      dismissOnEsc: true,
       hasBackdrop: true,
       backdropClass: 'fab-dialog-overlay-backdrop',
     };

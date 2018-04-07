@@ -31,16 +31,15 @@ export class FabricDialogService {
     return this._overlay.create(config);
   }
 
-  private _createConfig(config: FabricDialogConfig | undefined): OverlayConfig {
-    if (config) {
-      return new OverlayConfig({
-        ...this._defaultOverlayConfig,
-        hasBackdrop: config.canDismiss,
-        backdropClass: config.backdropClass,
-      });
-    } else {
-      return new OverlayConfig(this._defaultOverlayConfig);
-    }
+  private _createConfig(config: FabricDialogConfig): OverlayConfig {
+    const { hasBackdrop, backdropClass } = config;
+    return new OverlayConfig({
+      positionStrategy: this._overlay.position().global().centerVertically().centerHorizontally(),
+      scrollStrategy: this._overlay.scrollStrategies.block(),
+      hasBackdrop,
+      backdropClass,
+    });
+  }
   }
 
 }

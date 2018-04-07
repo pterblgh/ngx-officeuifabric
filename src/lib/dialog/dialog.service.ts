@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ComponentType, ComponentPortal } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ESCAPE } from '@angular/cdk/keycodes';
 import { FabricDialogConfig } from './dialog-config.interface';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { FabricDialogRef } from './dialog-ref.class';
 import { filter } from 'rxjs/operators/filter';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,25 +22,22 @@ export class FabricDialogService {
     };
   }
 
-  open<T>(component: ComponentType<T>, _config?: FabricDialogConfig) {
+  open<T>(component: ComponentType<T>, _config?: FabricDialogConfig): FabricDialogRef {
     const config = this._mergeConfig(_config);
-    if (!this._overlayRef) {
-      const overlayConfig = this._createConfig(config);
-      this._overlayRef = this._createOverlay(overlayConfig);
-    }
+    const overlayConfig = this._createConfig(config);
+    this._overlayRef = this._createOverlay(overlayConfig);
     const portal = new ComponentPortal(component);
     if (config.dismissOnBackdropClick) {
       const subscription = this._overlayRef.backdropClick()
         .subscribe(() => this._closeDialog(subscription));
     }
     if (config.dismissOnEsc) {
-      const subscription = fromEvent(document, 'keydown')
-        .pipe(
-          filter((e: KeyboardEvent) => e.keyCode === 27),
-        )
+      const subscription = this._overlayRef.keydownEvents()
+        .pipe(filter((e: KeyboardEvent) => e.keyCode === ESCAPE))
         .subscribe(() => this._closeDialog(subscription));
     }
     this._overlayRef.attach(portal);
+    return new FabricDialogRef(this._overlayRef);
   }
 
   private _createOverlay(config: OverlayConfig) {

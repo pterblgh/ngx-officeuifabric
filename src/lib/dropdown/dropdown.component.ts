@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, HostBinding, OnDestroy } from '@angular/core';
 import { DropdownItem } from './dropdown-item.interface';
 import { DropdownItemType } from './dropdown-item-type.enum';
 import { CdkConnectedOverlay } from '@angular/cdk/overlay';
@@ -19,7 +19,7 @@ import { CdkOverlayOrigin } from '@angular/cdk/overlay';
     ]),
   ],
 })
-export class FabricDropdownComponent implements OnInit {
+export class FabricDropdownComponent implements OnInit, OnDestroy {
 
   private _placeholder: string;
   private _currentSelectedItem: DropdownItem;
@@ -88,11 +88,18 @@ export class FabricDropdownComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    // Remove the overlay from the DOM
+    this._cdkConnectedOverlay.overlayRef.dispose();
+  }
+
   onPlaceholderClicked(_event: MouseEvent) {
     this.isItemContainerVisible = !this.isItemContainerVisible;
   }
 
   onBackdropClicked() {
+    // Do not remove the overlay from the DOM yet because
+    // there is a chance that the user reopens it
     this._cdkConnectedOverlay.overlayRef.detach();
     this.isItemContainerVisible = false;
   }

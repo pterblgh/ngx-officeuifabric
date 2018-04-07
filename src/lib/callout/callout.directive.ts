@@ -38,13 +38,14 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
     this._config = value;
   }
 
-  constructor(private _injector: Injector,
-              private _element: ElementRef,
-              private _overlay: Overlay) {
-  }
+  constructor(
+    private _injector: Injector,
+    private _element: ElementRef,
+    private _overlay: Overlay,
+  ) { }
 
   ngOnInit(): void {
-    this.calloutConfig = {...FabricCalloutDirective._defaultConfig, ...this.calloutConfig};
+    this.calloutConfig = { ...FabricCalloutDirective._defaultConfig, ...this.calloutConfig };
   }
 
   ngOnDestroy(): void {
@@ -80,8 +81,8 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
   }
 
   private _createConfig(config: CalloutConfig): OverlayConfig {
-    const originPos: OriginConnectionPosition = {originX: 'end', originY: 'top'};
-    const overlayPos: OverlayConnectionPosition = {overlayX: 'start', overlayY: 'top'};
+    const originPos: OriginConnectionPosition = { originX: 'end', originY: 'top' };
+    const overlayPos: OverlayConnectionPosition = { overlayX: 'start', overlayY: 'top' };
 
     const overlayConfig: OverlayConfig = {
       positionStrategy: this._overlay.position().connectedTo(this._element, originPos, overlayPos),

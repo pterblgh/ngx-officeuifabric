@@ -11,7 +11,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   animations: [
     trigger('navOverlay', [
       transition(':enter', [
-        style({transform: 'translate3d(-100px, 0, 0)'}),
+        style({ transform: 'translate3d(-100px, 0, 0)' }),
         animate('0.367s cubic-bezier(0.1, 0.9, 0.2, 1)'),
       ]),
     ]),
@@ -35,15 +35,13 @@ export class FabricNavComponent implements OnDestroy {
   }
 
   get overlayRef(): OverlayRef {
-    if (!this._overlayRef) {
-      this._overlayRef = this.overlay.create({
-        width: 275,
-        scrollStrategy: this.overlay.scrollStrategies.block(),
-        hasBackdrop: true,
-      });
-      this.subscription = this._overlayRef.backdropClick()
-        .subscribe(() => this._overlayRef.detach());
-    }
+    this._overlayRef = this.overlay.create({
+      width: 275,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
+      hasBackdrop: true,
+    });
+    this.subscription = this._overlayRef.backdropClick()
+      .subscribe(() => this._overlayRef.dispose());
     return this._overlayRef;
   }
 

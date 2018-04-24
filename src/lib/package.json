@@ -9,7 +9,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^5.2.0",
-    "@angular/core": "^5.2.0"
+    "@angular/core": "^5.2.0",
+    "@angular/animations": "^5.2.0"
   },
   "main": "bundles/ngx-officeuifabric.umd.js",
   "module": "esm5/ngx-officeuifabric.js",

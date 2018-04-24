@@ -4,15 +4,18 @@
 
 Community driven implementation of Office UI Fabric components for Angular.
 
-#### Quick links
+### Quick links
 [Development environment](./DEV.md)
 
 ### Project status
 
-ngx-officeuifabric is currently under heavy development and there is no publicly available relase right now.
+🚧 &nbsp;ngx-officeuifabric is currently under development 🚧
 
-The project is maintained and organized via GitHub projects.
+The project is maintained and organized via [GitHub projects](https://github.com/pterblgh/ngx-officeuifabric/projects).
 
+### Contribution
+
+If you've found a bug or have an idea about improvements file an issue and let's start a conversation about it.
 
 ### Browser support
 ngx-officeuifabric supports the most recent two versions of all major browsers:

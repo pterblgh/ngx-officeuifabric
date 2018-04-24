@@ -23,12 +23,13 @@ export class FabricCalloutComponent {
     return this._config;
   }
 
-  constructor(private _overlayRef: OverlayRef,
-              @Inject(FAB_CALLOUT_CONFIG) private _config: CalloutConfig) {
-  }
+  constructor(
+    private _overlayRef: OverlayRef,
+    @Inject(FAB_CALLOUT_CONFIG) private _config: CalloutConfig,
+  ) { }
 
   onCloseClick() {
-    this._overlayRef.detach();
+    this._overlayRef.dispose();
   }
 
 }

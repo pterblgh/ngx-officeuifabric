@@ -38,13 +38,14 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
     this._config = value;
   }
 
-  constructor(private _injector: Injector,
-              private _element: ElementRef,
-              private _overlay: Overlay) {
-  }
+  constructor(
+    private _injector: Injector,
+    private _element: ElementRef,
+    private _overlay: Overlay,
+  ) { }
 
   ngOnInit(): void {
-    this.calloutConfig = {...FabricCalloutDirective._defaultConfig, ...this.calloutConfig};
+    this.calloutConfig = { ...FabricCalloutDirective._defaultConfig, ...this.calloutConfig };
   }
 
   ngOnDestroy(): void {
@@ -59,12 +60,10 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
   private _openOverlay() {
     if (this._config) {
       const config = this._createConfig(this._config);
-      if (!this._overlayRef) {
-        this._overlayRef = this._overlay.create(config);
-        if (this._config.canDismiss) {
-          this._backdropClicked$ = this._overlayRef.backdropClick();
-          this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.detach());
-        }
+      this._overlayRef = this._overlay.create(config);
+      if (this._config.canDismiss) {
+        this._backdropClicked$ = this._overlayRef.backdropClick();
+        this._subscription = this._backdropClicked$.subscribe(() => this._overlayRef.dispose());
       }
       const injector = this._createInjector(this._config);
       const portal = new ComponentPortal(FabricCalloutComponent, null, injector);
@@ -82,8 +81,8 @@ export class FabricCalloutDirective implements OnInit, OnDestroy {
   }
 
   private _createConfig(config: CalloutConfig): OverlayConfig {
-    const originPos: OriginConnectionPosition = {originX: 'end', originY: 'top'};
-    const overlayPos: OverlayConnectionPosition = {overlayX: 'start', overlayY: 'top'};
+    const originPos: OriginConnectionPosition = { originX: 'end', originY: 'top' };
+    const overlayPos: OverlayConnectionPosition = { overlayX: 'start', overlayY: 'top' };
 
     const overlayConfig: OverlayConfig = {
       positionStrategy: this._overlay.position().connectedTo(this._element, originPos, overlayPos),

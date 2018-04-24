@@ -14,11 +14,11 @@ const path = {
     esm5: join(projectDir, 'tmp', 'esm5'),
   },
   dist: {
-    root: join(projectDir, 'dist', 'lib'),
-    src: join(projectDir, 'dist', 'lib', 'src'),
-    esm2015: join(projectDir, 'dist', 'lib', 'esm2015'),
-    esm5: join(projectDir, 'dist', 'lib', 'esm5'),
-    bundle: join(projectDir, 'dist', 'lib', 'bundles'),
+    root: join(projectDir, 'dist'),
+    src: join(projectDir, 'dist', 'src'),
+    esm2015: join(projectDir, 'dist', 'esm2015'),
+    esm5: join(projectDir, 'dist', 'esm5'),
+    bundle: join(projectDir, 'dist', 'bundles'),
   },
 };
 

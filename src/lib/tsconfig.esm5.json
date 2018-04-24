@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "esm5"
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "ngx-officeuifabric.js",
+    "flatModuleId": "ngx-officeuifabric"
+  }
+}

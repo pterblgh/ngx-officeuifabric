@@ -1,0 +1,7 @@
+<div class="persona-pill-container">
+  <div class="initials-container">
+    <span class="initials persona-color-{{ initialsColor }}">{{ imageInitials }}</span>
+    <span *ngIf="presence && presence !== PersonaPresence.None" class="dot persona-presence-{{ presence }}"></span>
+  </div>
+  <span class="primary-text">{{ primaryText }}</span>
+</div>

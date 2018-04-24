@@ -1,0 +1,33 @@
+@import "variables";
+@import "button-base";
+@import "button-colorize";
+
+button {
+    @include button-reset();
+    max-width: 280px;
+    padding: 18px 20px;
+    @include button-colorize(
+        $ms-color-neutralLighter,
+        $ms-color-neutralPrimary,
+        $ms-color-neutralLight,
+        $ms-color-neutralDark,
+        $ms-color-neutralTertiaryAlt,
+        $ms-color-neutralLighter,
+        $ms-color-neutralTertiary
+    );
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .title {
+            margin-bottom: 5px;
+        }
+
+        .description {
+            color: $ms-color-neutralSecondary;
+            font-weight: $font-weight-normal;
+        }
+    }
+}

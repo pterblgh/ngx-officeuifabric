@@ -1,0 +1,72 @@
+@import "variables";
+
+.textfield-container {
+    display: flex;
+    flex-direction: column;
+
+    label,
+    input {
+        flex: 1;
+        font-size: 14px;
+    }
+
+    label {
+        padding: 5px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        color: $ms-color-neutralPrimary;
+
+        &.required {
+            &:after {
+                content: ' *';
+                color: $ms-color-redDark;
+            }
+        }
+    }
+
+    input {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        margin: 0;
+        padding: 0 12px;
+        outline: 0;
+        border: 1px solid $ms-color-neutralTertiary;
+        height: 32px;
+        color: $ms-color-neutralSecondary;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $ms-color-neutralPrimary;
+        }
+
+        &:hover {
+            border-color: $ms-color-neutralDark;
+        }
+
+        &:active,
+        &:focus {
+            border-color: $ms-color-blue;
+        }
+
+        &:disabled {
+            border: none;
+            background: $ms-color-neutralLighter;
+            color: $ms-color-neutralTertiary;
+        }
+
+        &.error {
+            border-color: $ms-color-redDark;
+        }
+    }
+
+    .error-message {
+        font-size: 12px;
+        font-weight: $font-weight-normal;
+        color: $ms-color-redDark;
+        margin: 0;
+        padding-top: 5px;
+        display: flex;
+        align-items: center;
+    }
+}

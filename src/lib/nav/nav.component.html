@@ -1,0 +1,29 @@
+<div class="nav-container" [class.fixed]="fixed">
+  <div class="nav-opener" (click)="openNavOverlay()">
+    <div class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="grid">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="app-name-container" *ngIf="appName">
+    <h1>{{ appName }}</h1>
+  </div>
+</div>
+
+<ng-template cdkPortal>
+  <div class="fab-nav-overlay-container" [@navOverlay]>
+    <ng-content></ng-content>
+  </div>
+</ng-template>

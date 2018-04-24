@@ -1,0 +1,106 @@
+@import "variables";
+
+label {
+    color: rgb(51, 51, 51);
+    box-sizing: border-box;
+    margin: 0;
+    display: block;
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.placeholder-container,
+.options-container {
+    * {
+        font-size: 12px;
+    }
+}
+
+.placeholder-container {
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    outline: 0;
+    border: 1px solid $ms-color-neutralTertiary;
+    height: 32px;
+    color: $ms-color-neutralSecondary;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $ms-color-neutralPrimary;
+    }
+
+    &:hover {
+        border-color: $ms-color-neutralDark;
+    }
+
+    &:active,
+    &:focus {
+        border-color: $ms-color-blue;
+    }
+
+    &:disabled {
+        border: none;
+        background: $ms-color-neutralLighter;
+        color: $ms-color-neutralTertiary;
+    }
+}
+
+.options-container {
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.4);
+
+    .option {
+        background: $ms-color-white;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 32px;
+        line-height: 20px;
+        padding: 4px 16px;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        text-align: left;
+
+        &:hover {
+            background-color: #f4f4f4;
+            color: #000000;
+        }
+
+        &.current {
+            background-color: #dadada;
+            color: #000000;
+        }
+
+        &.header {
+            font-weight: 600;
+            color: #0078d7;
+            cursor: default;
+
+            &:hover {
+                background-color: $ms-color-white;
+            }
+        }
+
+        &.divider {
+            min-height: 1px;
+            height: 1px;
+            padding: 0;
+            background-color: #eaeaea;
+            cursor: default;
+
+            &:hover {
+                background-color: #eaeaea;
+            }
+        }
+    }
+}

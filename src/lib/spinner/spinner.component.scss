@@ -1,0 +1,58 @@
+@import "_Color.Variables";
+@import "size";
+
+@mixin setSpinnerSize($sizeName, $size) {
+  &.#{$sizeName} {
+    .spinner {
+      @include size($size);
+    }
+  }
+}
+
+:host {
+  $sizeList: (xs, s, m, l);
+  $sizeMap: (
+    xs: 12px,
+    s: 16px,
+    m: 20px,
+    l: 28px
+  );
+
+  @each $size in $sizeList {
+    @include setSpinnerSize($size, map-get($sizeMap, $size));
+  }
+
+  &.xs,
+  &.s,
+  &.m {
+    font-size: 12px;
+  }
+
+  &.l {
+    font-size: 14px;
+  }
+
+  p {
+    margin: 1em auto;
+    text-align: center;
+    color: $ms-color-blue;
+  }
+}
+
+.spinner {
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid $ms-color-themeLight;
+  border-top-color: $ms-color-blue;
+  animation: spin 1.1s infinite cubic-bezier(0.53, 0.21, 0.29, 0.67);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

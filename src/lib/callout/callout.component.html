@@ -1,0 +1,5 @@
+<div class="callout-container" [@callout]>
+    <span class="close" *ngIf="!config.canDismiss" (click)="onCloseClick()"></span>
+    <h1 class="title" *ngIf="config.title">{{ config.title || 'Title' }}</h1>
+    <p *ngIf="config.content">{{ config.content }}</p>
+</div>

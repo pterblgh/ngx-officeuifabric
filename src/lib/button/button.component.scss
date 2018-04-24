@@ -1,0 +1,18 @@
+@import "variables";
+@import "button-base";
+@import "button-colorize";
+
+button {
+    @include button-reset();
+    height: 32px;
+    padding: 0 18px;
+    @include button-colorize(
+        $ms-color-neutralLighter,
+        $ms-color-neutralPrimary,
+        $ms-color-neutralLight,
+        $ms-color-neutralDark,
+        $ms-color-neutralTertiaryAlt,
+        $ms-color-neutralLighter,
+        $ms-color-neutralTertiary
+    );
+}

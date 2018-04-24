@@ -1,0 +1,36 @@
+@import "variables";
+
+.rating-container {
+
+    &.disabled {
+        opacity: 0.5;
+
+        svg {
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    svg {
+        width: 20px;
+        height: 21px;
+
+        &.inactive {
+            fill: $ms-color-neutralTertiary;
+        }
+
+        &.active {
+            fill: $ms-color-black;
+        }
+
+        &.current {
+            fill: $ms-color-blue;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}

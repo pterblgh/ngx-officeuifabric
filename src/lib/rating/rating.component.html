@@ -1,0 +1,7 @@
+<div class="rating-container" [class.disabled]="disabled" (mouseleave)="onMouseLeave($event)">
+    <ng-container *ngFor="let state of starStates; let i = index">
+        <svg [ngClass]="state" (mouseenter)="onHover(i)" (click)="onClicked($event, i)">
+            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" />
+        </svg>
+    </ng-container>
+</div>

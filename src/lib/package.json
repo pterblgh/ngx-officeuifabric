@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "homepage": "https://github.com/pterblgh/ngx-officeuifabric",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pterblgh/ngx-officeuifabric.git"
+  },
   "peerDependencies": {
     "@angular/common": "^5.2.0",
     "@angular/core": "^5.2.0"

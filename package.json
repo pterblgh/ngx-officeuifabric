@@ -1,7 +1,8 @@
 {
-  "name": "ngx-officeuifabric-cli",
-  "version": "0.1.0",
+  "name": "ngx-officeuifabric",
+  "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://github.com/pterblgh/ngx-officeuifabric",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -81,5 +82,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pterblgh/ngx-officeuifabric.git"
+  },
 }

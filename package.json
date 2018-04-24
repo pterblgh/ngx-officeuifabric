@@ -90,11 +90,6 @@
   "release": {
     "noCi": true,
     "tagFormat": "${version}",
-    "publish": [
-      {
-        "path": "@semantic-release/npm",
-        "pkgRoot": "dist"
-      }
-    ]
+    "pkgRoot": "dist"
   }
 }

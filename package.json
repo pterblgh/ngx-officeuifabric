@@ -87,4 +87,13 @@
     "type": "git",
     "url": "https://github.com/pterblgh/ngx-officeuifabric.git"
   },
+  "release": {
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "pkgRoot": "dist"
+      },
+      "@semantic-release/git"
+    ]
+  }
 }

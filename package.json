@@ -88,6 +88,8 @@
     "url": "https://github.com/pterblgh/ngx-officeuifabric.git"
   },
   "release": {
+    "noCi": true,
+    "tagFormat": "${version}",
     "publish": [
       {
         "path": "@semantic-release/npm",

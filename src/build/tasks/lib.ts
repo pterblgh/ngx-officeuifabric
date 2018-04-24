@@ -14,11 +14,11 @@ const path = {
     esm5: join(projectDir, 'tmp', 'esm5'),
   },
   dist: {
-    root: join(projectDir, 'dist', 'lib'),
-    src: join(projectDir, 'dist', 'lib', 'src'),
-    esm2015: join(projectDir, 'dist', 'lib', 'esm2015'),
-    esm5: join(projectDir, 'dist', 'lib', 'esm5'),
-    bundle: join(projectDir, 'dist', 'lib', 'bundles'),
+    root: join(projectDir, 'dist'),
+    src: join(projectDir, 'dist', 'src'),
+    esm2015: join(projectDir, 'dist', 'esm2015'),
+    esm5: join(projectDir, 'dist', 'esm5'),
+    bundle: join(projectDir, 'dist', 'bundles'),
   },
 };
 
@@ -37,6 +37,7 @@ inlineSources('lib', join(path.tmp.root, '**/*.component.ts'), path.tmp.root),
   ngc('esm5', join(path.tmp.root, 'tsconfig.esm5.json')),
   ngc('esm2015', join(path.tmp.root, 'tsconfig.esm2015.json')),
   'bundle:lib',
+  copy('readme', ['README.md'], { path: './' }, path.dist.root),
 ));
 
 const rollupGlobals = {

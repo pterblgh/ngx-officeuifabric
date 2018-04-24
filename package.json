@@ -1,7 +1,8 @@
 {
-  "name": "ngx-officeuifabric-cli",
-  "version": "0.1.0",
+  "name": "ngx-officeuifabric",
+  "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://github.com/pterblgh/ngx-officeuifabric",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +12,8 @@
     "e2e": "ng e2e",
     "build:lib": "gulp build:lib",
     "lint:lib": "tslint -p src/lib/tsconfig.json --fix",
-    "lint:lib:ci": "tslint -p src/lib/tsconfig.json"
+    "lint:lib:ci": "tslint -p src/lib/tsconfig.json",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -74,10 +76,24 @@
     "tslint": "~5.9.1",
     "typescript": "~2.5.3",
     "uglify-js": "^3.3.15",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "semantic-release": "^15.1.7"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pterblgh/ngx-officeuifabric.git"
+  },
+  "release": {
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "pkgRoot": "dist"
+      },
+      "@semantic-release/git"
+    ]
+  }
 }

@@ -37,6 +37,7 @@ inlineSources('lib', join(path.tmp.root, '**/*.component.ts'), path.tmp.root),
   ngc('esm5', join(path.tmp.root, 'tsconfig.esm5.json')),
   ngc('esm2015', join(path.tmp.root, 'tsconfig.esm2015.json')),
   'bundle:lib',
+  copy('readme', ['README.md'], { path: './' }, path.dist.root),
 ));
 
 const rollupGlobals = {

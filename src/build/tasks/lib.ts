@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { buildConfig } from 'build';
-import { sass, copy, runSequence, inlineSources, ngc, clean, rollup, RollupConfig, uglifyJsFile, htmlMin } from 'gulp-helpers';
+import { copy, runSequence, inlineSources, ngc, clean, rollup, RollupConfig, uglifyJsFile, htmlMin } from 'gulp-helpers';
 import { task } from 'gulp';
 
 const { srcDir, projectDir } = buildConfig;
